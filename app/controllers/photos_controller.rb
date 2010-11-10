@@ -26,7 +26,8 @@ class PhotosController < ApplicationController
   # GET /photos/new.xml
   def new
     @photo = Photo.new
-
+    @cameras = Camera.all
+    @films = Film.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @photo }

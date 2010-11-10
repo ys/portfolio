@@ -19,7 +19,12 @@
   <b>Nickname:</b>
   <%= @camera.nickname %>
 </p>
-
+<p>
+	<b>Photos</b>
+	<% @camera.photos.each do |photo| %>
+	  <%= link_to image_tag(photo.image.url(:thumb), :border =>0),:controller =>'photos', :action => 'show', :id => photo %>
+	<% end %>
+</p>
 
 <%= link_to 'Edit', edit_camera_path(@camera) %> |
 <%= link_to 'Back', cameras_path %>

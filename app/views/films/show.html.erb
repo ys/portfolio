@@ -24,7 +24,12 @@
   <b>Description:</b>
   <%= @film.description %>
 </p>
-
+<p>
+	<b>Photos</b>
+	<% @film.photos.each do |photo| %>
+	  <%= link_to image_tag(photo.image.url(:thumb), :border =>0),:controller =>'photos', :action => 'show', :id => photo %>
+	<% end %>
+</p>
 
 <%= link_to 'Edit', edit_film_path(@film) %> |
 <%= link_to 'Back', films_path %>

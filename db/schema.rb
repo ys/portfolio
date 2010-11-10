@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101110135825) do
+ActiveRecord::Schema.define(:version => 20101110162159) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -48,8 +48,6 @@ ActiveRecord::Schema.define(:version => 20101110135825) do
     t.string   "description"
     t.date     "taken"
     t.boolean  "xpro"
-    t.string   "url"
-    t.string   "thumbnailUrl"
     t.integer  "camera_id"
     t.integer  "film_id"
     t.datetime "created_at"

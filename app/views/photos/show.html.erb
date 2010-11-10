@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+ <%= image_tag @photo.image.url(:thumb) %>
 <p>
   <b>Name:</b>
   <%= @photo.name %>
@@ -21,27 +21,21 @@
 </p>
 
 <p>
-  <b>Url:</b>
-  <%= @photo.url %>
-</p>
-
-<p>
-  <b>Thumbnailurl:</b>
-  <%= @photo.thumbnailUrl %>
-</p>
-
-<p>
   <b>Camera:</b>
-  <%= @photo.camera %>
+  <%= @photo.camera.brand+" "+ @photo.camera.model  if( @photo.camera != nil) %>
 </p>
 
 <p>
   <b>Film:</b>
-  <%= @photo.film %>
+  <%= @photo.film.brand+" "+ @photo.film.name if( @photo.film != nil) %>
+</p>
+<p>
+  <b>Created_at:</b>
+  <%= @photo.created_at %>
 </p>
 <%= image_tag @photo.image.url %>
-  <%= image_tag @photo.image.url(:medium) %>
-  <%= image_tag @photo.image.url(:thumb) %>
+
+
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %>

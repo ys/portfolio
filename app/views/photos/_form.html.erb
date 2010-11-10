@@ -28,20 +28,12 @@
     <%= f.check_box :xpro %>
   </div>
   <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :thumbnailUrl %><br />
-    <%= f.text_field :thumbnailUrl %>
-  </div>
-  <div class="field">
     <%= f.label :camera %><br />
-    <%= f.collection_select( :camera_id, Camera.all, :id, :name, :prompt => 'Please select camera') %>
+    <%= f.collection_select( :camera_id, @cameras, :id, :fullName, :prompt => 'Please select camera') %>
   </div>
   <div class="field">
     <%= f.label :film %><br />
-    <%= f.collection_select( :film_id, Film.all, :id, :name, :prompt => 'Please select film') %>
+    <%= f.collection_select( :film_id, @films, :id, :fullName, :prompt => 'Please select film') %>
   </div>
 
 
