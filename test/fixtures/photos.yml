@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  added: 2010-11-09
+  taken: 2010-11-09
+  xpro: false
+  url: MyString
+  thumbnailUrl: MyString
+  camera: 
+  film: 
+
+two:
+  name: MyString
+  description: MyString
+  added: 2010-11-09
+  taken: 2010-11-09
+  xpro: false
+  url: MyString
+  thumbnailUrl: MyString
+  camera: 
+  film: 

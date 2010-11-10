@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @photo.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @photo.description %>
+</p>
+
+<p>
+  <b>Added:</b>
+  <%= @photo.added %>
+</p>
+
+<p>
+  <b>Taken:</b>
+  <%= @photo.taken %>
+</p>
+
+<p>
+  <b>Xpro:</b>
+  <%= @photo.xpro %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @photo.url %>
+</p>
+
+<p>
+  <b>Thumbnailurl:</b>
+  <%= @photo.thumbnailUrl %>
+</p>
+
+<p>
+  <b>Camera:</b>
+  <%= @photo.camera %>
+</p>
+
+<p>
+  <b>Film:</b>
+  <%= @photo.film %>
+</p>
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
