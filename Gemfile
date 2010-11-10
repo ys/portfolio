@@ -27,4 +27,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # and rake tasks are available in development mode:
 # group :development, :test do
 #   gem 'webrat'
+
+# USER GEMS
+gem 'gstore', :require => 'gstore'
+gem 'bookis-paperclip', :require => 'paperclip'
 # end

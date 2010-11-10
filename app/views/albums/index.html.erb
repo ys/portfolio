@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Created</th>
     <th>Description</th>
     <th></th>
     <th></th>
@@ -13,7 +12,6 @@
 <% @albums.each do |album| %>
   <tr>
     <td><%= album.name %></td>
-    <td><%= album.created %></td>
     <td><%= album.description %></td>
     <td><%= link_to 'Show', album %></td>
     <td><%= link_to 'Edit', edit_album_path(album) %></td>

@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  require "kconv"
   # GET /photos
   # GET /photos.xml
   def index
@@ -41,7 +42,6 @@ class PhotosController < ApplicationController
   # POST /photos.xml
   def create
     @photo = Photo.new(params[:photo])
-
     respond_to do |format|
       if @photo.save
         format.html { redirect_to(@photo, :notice => 'Photo was successfully created.') }
