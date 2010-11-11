@@ -2,7 +2,11 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.xml
   def index
-    @tags = Tag.all
+    if (params[:photo_id])
+      @tags = Photo.find(params[:photo_id]).tags
+    else
+      @tags = Tag.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,6 +2,7 @@ class CamerasController < ApplicationController
   # GET /cameras
   # GET /cameras.xml
   def index
+    
     @cameras = Camera.all
 
     respond_to do |format|

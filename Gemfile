@@ -29,6 +29,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 #   gem 'webrat'
 
 # USER GEMS
+gem 'devise', :require => 'devise'
 gem 'gstore', :require => 'gstore'
 gem 'bookis-paperclip', :require => 'paperclip'
 # end

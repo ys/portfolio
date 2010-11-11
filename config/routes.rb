@@ -1,13 +1,25 @@
 Eatcpcks::Application.routes.draw do
-  resources :photos
+  devise_for :users
 
-  resources :tags
+  resources :photos do
+    resources :tags, :albums
+  end
 
-  resources :albums
+  resources :tags do
+    resources :photos
+  end
 
-  resources :films
+  resources :albums do
+    resources :photos
+  end
 
-  resources :cameras
+  resources :films do
+    resources :photos
+  end
+
+  resources :cameras do
+    resources :photos
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -58,7 +70,7 @@ Eatcpcks::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+   root :to => "photos#index"
 
   # See how all your routes lay out with "rake routes"
 

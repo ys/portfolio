@@ -1,10 +1,19 @@
 class PhotosController < ApplicationController
   require "kconv"
+
+
   # GET /photos
   # GET /photos.xml
   def index
-    @photos = Photo.all
-
+    if (params[:camera_id])
+      @photos = Photo.find_all_by_camera_id(params[:camera_id])
+    elsif (params[:film_id])
+      @photos = Photo.find_all_by_film_id(params[:film_id])
+    elsif (params[:album_id])
+      @photos = Album.find(params[:album_id]).photos
+    else
+      @photos = Photo.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @photos }
@@ -37,6 +46,8 @@ class PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
     @photo = Photo.find(params[:id])
+    @cameras = Camera.all
+    @films = Film.all
   end
 
   # POST /photos

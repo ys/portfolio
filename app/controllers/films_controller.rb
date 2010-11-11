@@ -2,6 +2,7 @@ class FilmsController < ApplicationController
   # GET /films
   # GET /films.xml
   def index
+    
     @films = Film.all
 
     respond_to do |format|

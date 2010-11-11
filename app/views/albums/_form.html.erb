@@ -1,4 +1,4 @@
-<%= form_for(@album) do |f| %>
+<%= form_for(@album,:html => {:multipart => true}) do |f| %>
   <% if @album.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
@@ -19,6 +19,12 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+<div id="photos">
+     <% if @album.new_record? %>
+       <%= render :partial => 'photo', :locals => { :form => f, :photo => @album.photos.build } %>
+    <% end %>
+  </div>
+  <%= add_object_link("New Photo", f, @album.photos.build, "photo", "#photos") %>
   <div class="actions">
     <%= f.submit %>
   </div>

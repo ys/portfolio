@@ -2,8 +2,11 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.xml
   def index
-    @albums = Album.all
-
+    if (params[:photo_id])
+      @albums = Photo.find(params[:photo_id]).albums
+    else
+      @albums = Album.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @albums }
@@ -25,7 +28,8 @@ class AlbumsController < ApplicationController
   # GET /albums/new.xml
   def new
     @album = Album.new
-
+    @cameras = Camera.all
+    @films = Film.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @album }
@@ -35,6 +39,8 @@ class AlbumsController < ApplicationController
   # GET /albums/1/edit
   def edit
     @album = Album.find(params[:id])
+    @cameras = Camera.all
+    @films = Film.all
   end
 
   # POST /albums
@@ -44,6 +50,7 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
+
         format.html { redirect_to(@album, :notice => 'Album was successfully created.') }
         format.xml  { render :xml => @album, :status => :created, :location => @album }
       else
