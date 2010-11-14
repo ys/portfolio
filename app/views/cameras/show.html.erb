@@ -3,28 +3,22 @@
 <p>
   <b>Name:</b>
   <%= @camera.name %>
-</p>
-
-<p>
+  |  
   <b>Model:</b>
   <%= @camera.model %>
-</p>
-
-<p>
+  |  
   <b>Brand:</b>
   <%= @camera.brand %>
-</p>
-
-<p>
+  |  
   <b>Nickname:</b>
   <%= @camera.nickname %>
 </p>
-<p>
-	<b>Photos</b>
+<div>
 	<% @camera.photos.each do |photo| %>
-	  <%= link_to image_tag(photo.image.url(:thumb), :border =>0),:controller =>'photos', :action => 'show', :id => photo %>
+	  <%= link_to image_tag(photo.image.url(:medium), :border =>0, :class => 'thumb'),:controller =>'photos', :action => 'show', :id => photo %>
 	<% end %>
-</p>
-
+</div>
+<%-if user_signed_in?-%>
 <%= link_to 'Edit', edit_camera_path(@camera) %> |
+<%-end-%>
 <%= link_to 'Back', cameras_path %>

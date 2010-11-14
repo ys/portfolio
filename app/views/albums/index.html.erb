@@ -1,25 +1,15 @@
-<h1>Listing albums</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<h1>Albums</h1>
+<div id="categories">
 <% @albums.each do |album| %>
-  <tr>
-    <td><%= album.name %></td>
-    <td><%= album.description %></td>
-    <td><%= link_to 'Show', album %></td>
-    <td><%= link_to 'Edit', edit_album_path(album) %></td>
-    <td><%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+	<%- if !album.photos.empty? || user_signed_in? -%>
+	<div class="category">
+		<span class="leftAlign"><%= album.name %></span>
+		<%= link_to image_tag(randomMediumPicture(album), :border =>0),:controller =>'albums', :action => 'show', :id => album %>
+		<%- if user_signed_in? -%>
+		<span class="rightAlign"><%= link_to 'Edit', edit_album_path(album)%> | <%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></span>
+		<%-end-%>
+	</div>
+	<%-end-%>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Album', new_album_path %>
+</div>
+<%= link_to 'New Album', new_album_path if user_signed_in?%>

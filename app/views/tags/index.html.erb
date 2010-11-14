@@ -1,25 +1,17 @@
-<h1>Listing tags</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<h1>Tags</h1>
+<div id="categories">
 <% @tags.each do |tag| %>
-  <tr>
-    <td><%= tag.name %></td>
-    <td><%= tag.description %></td>
-    <td><%= link_to 'Show', tag %></td>
-    <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-    <td><%= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+		<%- if !tag.photos.empty?  || user_signed_in? -%>
+	<div class="category">
+
+		<span class="leftAlign"><%= tag.name %></span>
+		<%= link_to image_tag(randomMediumPicture(tag), :border =>0),:controller =>'tags', :action => 'show', :id => tag %>
+		<%- if user_signed_in? -%>
+		<span class="rightAlign"><%= link_to 'Edit', edit_tag_path(tag)%> | <%= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete %></span>
+		<%-end-%>
+	</div>
+	<%-end-%>
 <% end %>
-</table>
+</div>
 
-<br />
-
-<%= link_to 'New Tag', new_tag_path %>
+<%= link_to 'New Tag', new_tag_path if user_signed_in? %>

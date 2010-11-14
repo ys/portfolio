@@ -1,29 +1,15 @@
-<h1>Listing cameras</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Model</th>
-    <th>Brand</th>
-    <th>Nickname</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @cameras.each do |camera| %>
-  <tr>
-    <td><%= camera.name %></td>
-    <td><%= camera.model %></td>
-    <td><%= camera.brand %></td>
-    <td><%= camera.nickname %></td>
-    <td><%= link_to 'Show', camera %></td>
-    <td><%= link_to 'Edit', edit_camera_path(camera) %></td>
-    <td><%= link_to 'Destroy', camera, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<h1>Cameras</h1>
+<div id="categories">
+<% @cameras.each do |camera| %><%- if !camera.photos.empty? || user_signed_in? -%>
+	<div class="category">
+		
+		<span class="leftAlign"><%= camera.fullName %></span>
+		<%= link_to image_tag(randomMediumPicture(camera), :border =>0),:controller =>'cameras', :action => 'show', :id => camera %>
+		<%- if user_signed_in? -%>
+		<span class="rightAlign"><%= link_to 'Edit', edit_camera_path(camera) %> | <%= link_to 'Destroy', camera, :confirm => 'Are you sure?', :method => :delete %></span>
+		<%-end-%>
+		
+	</div><%-end-%>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Camera', new_camera_path %>
+</div>
+<%= link_to 'New Camera', new_camera_path if user_signed_in?%>

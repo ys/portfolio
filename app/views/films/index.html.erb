@@ -1,31 +1,16 @@
-<h1>Listing films</h1>
-
-<table>
-  <tr>
-    <th>Type</th>
-    <th>Format</th>
-    <th>Brand</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<h1>Films</h1>
+<div id="categories">
 <% @films.each do |film| %>
-  <tr>
-    <td><%= film.type %></td>
-    <td><%= film.format %></td>
-    <td><%= film.brand %></td>
-    <td><%= film.name %></td>
-    <td><%= film.description %></td>
-    <td><%= link_to 'Show', film %></td>
-    <td><%= link_to 'Edit', edit_film_path(film) %></td>
-    <td><%= link_to 'Destroy', film, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<%- if !film.photos.empty?  || user_signed_in? -%>
+	<div class="category">
+		
+		<span class="leftAlign"><%= film.fullName %></span>
+		<%= link_to image_tag(randomMediumPicture(film), :border =>0),:controller =>'films', :action => 'show', :id => film %>
+		<%- if user_signed_in? -%>
+		<span class="rightAlign"><%= link_to 'Edit', edit_film_path(film) %> | <%= link_to 'Destroy', film, :confirm => 'Are you sure?', :method => :delete %></span>
+		<%- end -%>
+		
+	</div><%-end-%>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Film', new_film_path %>
+</div>
+<%= link_to 'New Film', new_film_path if user_signed_in?%>
