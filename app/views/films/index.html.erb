@@ -1,5 +1,5 @@
 <h1>Films</h1>
-<div id="categories">
+<div id="categories" class=" grid_20 push_2">
 <% @films.each do |film| %>
 <%- if !film.photos.empty?  || user_signed_in? -%>
 	<div class="category">
