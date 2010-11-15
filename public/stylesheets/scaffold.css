@@ -69,6 +69,9 @@ div.field, div.actions {
 .category img{
 	height:200px;
 }
+.category:hover img{
+
+}
 .photo img{
 	height:100%;
 }
@@ -86,6 +89,21 @@ div.field, div.actions {
 .category .rightAlign, .photo .rightAlign{
 	left:0;
 	top:10px;
+}
+.currentPage{
+	font-size:20px;
+}
+#head{
+	width:100%;
+	height:100px;
+	border-bottom:1px solid grey;
+}
+#menu{
+	list-style: none;
+}
+#menu li{
+	float:left;
+	margin:5px;
 }
 .thumb{
 	height:200px;

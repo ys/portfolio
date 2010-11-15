@@ -2,7 +2,7 @@ class CamerasController < ApplicationController
   # GET /cameras
   # GET /cameras.xml
   def index
-    
+
     @cameras = Camera.all
 
     respond_to do |format|
@@ -14,8 +14,12 @@ class CamerasController < ApplicationController
   # GET /cameras/1
   # GET /cameras/1.xml
   def show
-    @camera = Camera.find(params[:id])
-
+    begin
+      @camera = Camera.find(params[:id])
+    rescue
+      nickname = params[:id]
+      @camera = Camera.find_by_nickname(nickname)      
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @camera }
