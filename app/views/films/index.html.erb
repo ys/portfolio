@@ -3,14 +3,15 @@
 <% @films.each do |film| %>
 <%- if !film.photos.empty?  || user_signed_in? -%>
 	<div class="category">
-		
+		<div class="triangle left"></div>
 		<span class="leftAlign"><%= film.fullName %></span>
 		<%= link_to image_tag(randomMediumPicture(film), :border =>0),:controller =>'films', :action => 'show', :id => film %>
 		<%- if user_signed_in? -%>
+		<div class="triangle right"></div>
 		<span class="rightAlign"><%= link_to 'Edit', edit_film_path(film) %> | <%= link_to 'Destroy', film, :confirm => 'Are you sure?', :method => :delete %></span>
 		<%- end -%>
 		
 	</div><%-end-%>
 <% end %>
 </div>
-<%= link_to 'New Film', new_film_path if user_signed_in?%>
+<%= link_to image_tag('add.png'), new_film_path, :class =>'add' if user_signed_in?%>

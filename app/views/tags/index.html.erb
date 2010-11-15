@@ -3,10 +3,11 @@
 <% @tags.each do |tag| %>
 		<%- if !tag.photos.empty?  || user_signed_in? -%>
 	<div class="category">
-
+		<div class="triangle left"></div>
 		<span class="leftAlign"><%= tag.name %></span>
 		<%= link_to image_tag(randomMediumPicture(tag), :border =>0),:controller =>'tags', :action => 'show', :id => tag %>
 		<%- if user_signed_in? -%>
+		<div class="triangle right"></div>
 		<span class="rightAlign"><%= link_to 'Edit', edit_tag_path(tag)%> | <%= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete %></span>
 		<%-end-%>
 	</div>
@@ -14,4 +15,4 @@
 <% end %>
 </div>
 
-<%= link_to 'New Tag', new_tag_path if user_signed_in? %>
+<%= link_to image_tag('add.png'), new_tag_path, :class =>'add' if user_signed_in?%>

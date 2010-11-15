@@ -84,6 +84,9 @@ div.field, div.actions {
 	margin-top:0;
 	height:100%;
 }
+#content{
+	position:relative;
+}
 .photo{
 	margin:2px;
 	float:left;
@@ -122,8 +125,14 @@ div.field, div.actions {
 	width:0px;
 	position: absolute;
 	left: -10px;
-	bottom: 5px;
 	z-index:0;; /* displayed under bubble */
+}
+.triangle.left{
+	bottom: 5px;
+	
+}
+.triangle.right{
+	top:35px;
 }
 .category .leftAlign, .photo .leftAlign{
 	left:-5px;
@@ -188,6 +197,8 @@ h1{
 .category{
 
 }
+.add{position:absolute;bottom:0;right:0;}
+.add img{height:50px;}
 .thumb{
 	height:200px;
 }
