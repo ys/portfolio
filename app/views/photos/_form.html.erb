@@ -53,7 +53,7 @@
 <% for album in Album.find(:all) %>
 
   <%= check_box_tag "photo[album_ids][]", album.id, @photo.albums.include?(album) %>
-  <%= tag.name %>
+  <%= album.name %>
 <% end %>
 </div>
 
