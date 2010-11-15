@@ -95,15 +95,28 @@ div.field, div.actions {
 }
 #head{
 	width:100%;
-	height:100px;
+	height:50px;
 	border-bottom:1px solid grey;
+	position:relative;
+}
+#title{
+	font-size:30px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	margin:5px;
 }
 #menu{
 	list-style: none;
+	position:absolute;
+	bottom:0;
+	right:0;
+	margin:0;
+	
 }
 #menu li{
 	float:left;
-	margin:5px;
+	margin-right:15px;
 }
 .thumb{
 	height:200px;

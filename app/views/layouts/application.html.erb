@@ -10,21 +10,23 @@ jQuery.noConflict();
 </script>
 </head>
 <body>
+
 <div id="head">
+	<span id="title">eatcpcks: a tasteful portfolio</span>
 <ul id="menu">
-<li><%= link_to_unless_current 'Photos', photos_path do
+<li><%= link_to_unless request.path.starts_with?(photos_path), 'Photos', photos_path do
   link_to("Photos", photos_path, :class => 'currentPage')
 end %></li>
-<li><%= link_to_unless_current 'Albums', albums_path do
+<li><%= link_to_unless request.path.starts_with?(albums_path), 'Albums', albums_path do
   link_to('Albums', albums_path, :class => 'currentPage' )
 end %></li>
-<li><%= link_to_unless_current 'Cameras', cameras_path do
+<li><%= link_to_unless request.path.starts_with?(cameras_path), 'Cameras', cameras_path do
   link_to('Cameras', cameras_path, :class =>'currentPage')
 end %></li>
-<li><%= link_to_unless_current 'Films', films_path do
+<li><%= link_to_unless request.path.starts_with?(films_path), 'Films', films_path do
   link_to('Films', films_path, :class =>'currentPage')
 end %></li>
-<li><%= link_to_unless_current 'Tags', tags_path do
+<li><%= link_to_unless request.path.starts_with?(tags_path), 'Tags', tags_path do
   link_to('Tags', tags_path, :class =>'currentPage')
 end %></li>
 <li><%= link_to_unless_current 'About', '/about' do
