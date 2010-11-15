@@ -211,3 +211,8 @@ h1{
 	height:150px;
 	border-top:10px dashed rgba(237,236,216,0.6);
 }
+.pdf{
+	font-family:ClumsyRegular;
+	font-size:23px;
+	color:#EDECD8;
+}
