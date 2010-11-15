@@ -10,8 +10,8 @@ jQuery.noConflict();
 </script>
 </head>
 <body>
-
-<div id="head">
+<div id="body" class="container_24">
+<div id="head" class="grid_24">
 	<span id="title"><%= image_tag "logo.jpg"%></span>
 <ul id="menu">
 <li><%= link_to_unless request.path.starts_with?(photos_path), 'Photos', photos_path do
@@ -34,7 +34,9 @@ end %></li>
 end %></li>
 </ul>
 </div>
+<div id="content" class="grid_24">
 <%= yield %>
-
+</div>
+<div>
 </body>
 </html>
