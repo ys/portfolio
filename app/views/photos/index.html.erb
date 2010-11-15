@@ -3,10 +3,13 @@
 <div id="categories" class=" grid_20 push_2">
 <% @photos.each do |photo| %>
 	<div class="category">
+		<div class="triangle"></div>
 		<span class="leftAlign"><%= photo.name %></span>
 		<%= link_to image_tag(photo.image.url(:medium), :border =>0),:controller =>'photos', :action => 'show', :id => photo %>
 		<%- if user_signed_in? -%>
+		<div class="triangle"></div>
 		<span class="rightAlign"><%= link_to 'Edit', edit_photo_path(photo) %> | <%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></span>
+		
 		<%-end-%>
 	</div>
 <% end %>
