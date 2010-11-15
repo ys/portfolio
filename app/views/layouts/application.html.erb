@@ -12,7 +12,7 @@ jQuery.noConflict();
 <body>
 
 <div id="head">
-	<span id="title">eatcpcks: a tasteful portfolio</span>
+	<span id="title"><%= image_tag "logo.jpg"%></span>
 <ul id="menu">
 <li><%= link_to_unless request.path.starts_with?(photos_path), 'Photos', photos_path do
   link_to("Photos", photos_path, :class => 'currentPage')
