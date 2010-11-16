@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="photo grid_20 push_2">
+<div class="triangle left"></div>
 <span class="leftAlign">
 <p>
   <b>Name:</b>
@@ -36,7 +37,7 @@
   <%= @photo.created_at %>
 </p>
 </span>
-
+<div class="triangle right"></div>
 <span class="rightAlign">
 	<%- if user_signed_in? -%>
 	<%= link_to 'Edit', edit_photo_path(@photo) if user_signed_in? %> |

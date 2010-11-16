@@ -22,7 +22,7 @@ jQuery.noConflict();
 <li <%- if(request.path.starts_with?('/about')) -%>class="currentPage"<%-end-%>><%= link_to 'About', '/about'%></li>
 
 </ul>
-<span id="title"><%= link_to image_tag("logo1.png"), '/'%></span>
+<span id="title"><%= link_to image_tag("logo1.png", :mouseover =>"logo2.png"), '/'%></span>
 </div>
 <div id="content" class="grid_24">
 <%= yield %>

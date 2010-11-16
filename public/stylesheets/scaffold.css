@@ -112,7 +112,7 @@ div.field, div.actions {
 	-khtml-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
 	background-color:#EDECD8;
-	padding:6px;
+	padding:3px 10px 3px 3px;
 	color:#222222;
 	border-radius:0 10px 10px 0;
 	position:absolute;
@@ -184,13 +184,13 @@ h1{
 	float:left;
 	margin-right:15px;
 	position:relative;
-	border-top:3px solid transparent;
+	border-top:8px solid transparent;
 }
 #menu li:hover{
-	border-top:3px solid rgba(237,236,216,0.6);
+	border-top:8px solid rgba(237,236,216,0.6);
 }
 #menu li.currentPage{
-	border-top:3px solid #EDECD8;
+	border-top:8px solid #EDECD8;
 }
 
 
