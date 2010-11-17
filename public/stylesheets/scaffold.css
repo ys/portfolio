@@ -129,6 +129,9 @@ div.field, div.actions {
 	margin-bottom:5px;
 	border-radius:5px;
 }
+.category a{
+	width:100%;
+}
 .category p{
 	margin:5px;
 }
