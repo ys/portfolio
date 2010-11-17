@@ -18,7 +18,7 @@ jQuery.noConflict();
 	  	request.path.starts_with?(albums_path) ||
 		request.path.starts_with?(cameras_path)||
 		request.path.starts_with?(films_path)  || 
-		request.path.starts_with?(tags_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Portfolio', photos_path%></li>
+		request.path.starts_with?(tags_path)||  request.path=='/') -%>class="currentPage"<%-end-%>><%= link_to 'Portfolio', photos_path%></li>
 <li <%- if(request.path.starts_with?('/inspiration')) -%>class="currentPage"<%-end-%>><%= link_to 'Inspiration', '/inspiration'%></li>
 <li <%- if(request.path.starts_with?('/recipes')) -%>class="currentPage"<%-end-%>><%= link_to 'Recipes', '/recipes'%>
 
@@ -32,7 +32,7 @@ jQuery.noConflict();
 	  	request.path.starts_with?(albums_path) ||
 		request.path.starts_with?(cameras_path)||
 		request.path.starts_with?(films_path)  || 
-		request.path.starts_with?(tags_path)) -%>
+		request.path.starts_with?(tags_path)	||  request.path=='/') -%>
 <ul id="leftMenu">
 <li <%- if(request.path.starts_with?(photos_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Photos', photos_path%></li>
 <li <%- if(request.path.starts_with?(albums_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Albums', albums_path%></li>
