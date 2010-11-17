@@ -17,6 +17,7 @@ class PhotosController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @photos }
+      format.json  { render :json => @photos }
     end
   end
 
@@ -41,6 +42,7 @@ class PhotosController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @photo }
+      format.json  { render :json => @photo }
     end
   end
 
@@ -59,9 +61,11 @@ class PhotosController < ApplicationController
       if @photo.save
         format.html { redirect_to(@photo, :notice => 'Photo was successfully created.') }
         format.xml  { render :xml => @photo, :status => :created, :location => @photo }
+        format.json  { render :json => @photo, :status => :created, :location => @photo }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @photo.errors, :status => :unprocessable_entity}
       end
     end
   end
@@ -75,9 +79,11 @@ class PhotosController < ApplicationController
       if @photo.update_attributes(params[:photo])
         format.html { redirect_to(@photo, :notice => 'Photo was successfully updated.') }
         format.xml  { head :ok }
+        format.json  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @photo.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -91,6 +97,7 @@ class PhotosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(photos_url) }
       format.xml  { head :ok }
+      format.json  { head :ok }
     end
   end
 end

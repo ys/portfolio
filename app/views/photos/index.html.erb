@@ -1,18 +1,19 @@
 
 <h1>Photos</h1>
-<div id="categories" class=" grid_22 push_1">
+<% i=0%>
 <% @photos.each do |photo| %>
-	<div class="category">
+	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
 		<div class="triangle left"></div>
 		<span class="leftAlign"><%= link_to photo.name,:controller =>'photos', :action => 'show', :id => photo %></span>
-		<%= link_to image_tag(photo.image.url(:medium), :border =>0),:controller =>'photos', :action => 'show', :id => photo %>
+		<%= link_to image_tag(photo.image.url(:square), :border =>0),:controller =>'photos', :action => 'show', :id => photo %>
 		<%- if user_signed_in? -%>
 		<div class="triangle right"></div>
 		<span class="rightAlign"><%= link_to 'Edit', edit_photo_path(photo) %> | <%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></span>
-		
+		<%-i = i+1 -%>
+		<%- if i==6 -%>
+		<%-i=0 end-%>
 		<%-end-%>
 	</div>
 <% end %>
 
-</div>
 <%= link_to image_tag('add.png'), new_photo_path, :class =>'add' if user_signed_in?%>

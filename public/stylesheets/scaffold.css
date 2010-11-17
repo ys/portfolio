@@ -81,11 +81,38 @@ div.field, div.actions {
 }
 
 #body{
+	position:relative;
 	margin-top:0;
 	height:100%;
 }
+#leftColumn{
+	background:rgba(2,174,192,0.6);
+	border-radius:20px;
+	margin-top:30px;
+}
+#leftMenu{
+	list-style: none;
+	
+	
+}
+#leftMenu li{
+	font-family:ClumsyRegular;
+	font-size:20px;
+	margin: 0px 15px 10px 0;
+	position:relative;
+	float:left;
+	
+}
+#leftMenu li a{
+	color:#EDECD8;
+}
+#leftMenu li.currentPage a{
+	
+	text-decoration:underline;
+}
 #content{
 	position:relative;
+	margin-top:40px;
 }
 .photo{
 	margin:2px;
@@ -93,13 +120,19 @@ div.field, div.actions {
 	position:relative;
 }
 .category{
-	margin:5px;
+	background-color:#222222;
 	float:left;
 	position:relative;
-	height:200px;
+	height:150px;
+	border:8px solid #EDECD8;
+	margin-bottom:5px;
+	border-radius:5px;
+}
+.category p{
+	margin:5px;
 }
 .category img{
-	height:200px;
+	width:100%;
 }
 .category:hover img{
 
@@ -118,7 +151,7 @@ div.field, div.actions {
 	position:absolute;
 }
 .triangle{
-	border-color: transparent #c0bfad transparent transparent;
+	border-color: transparent #333333 transparent transparent;
 	border-style:solid;
 	border-width:5px;
 	height:0px;
@@ -132,7 +165,7 @@ div.field, div.actions {
 	
 }
 .triangle.right{
-	top:35px;
+	top:29px;
 }
 .category .leftAlign, .photo .leftAlign{
 	left:-5px;
@@ -149,7 +182,7 @@ h1{
 	
 	height:100px;
 	padding-top:20px;
-	margin-bottom:50px;
+	margin-bottom:40px;
 	position:relative;
 }
 #title img{
@@ -193,15 +226,9 @@ h1{
 	border-top:8px solid #EDECD8;
 }
 
-
-.category{
-
-}
-.add{position:absolute;bottom:0;right:0;}
+.add{position:absolute;top:-100px;right:0;}
 .add img{height:50px;}
-.thumb{
-	height:200px;
-}
+
 #footer{
 	padding-top:40px;
 	font-size:35px;

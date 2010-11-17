@@ -1,17 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="category grid_4 alpha">
+	<p>
   <b>Name:</b>
   <%= @album.name %>
-  |  
   <b>Description:</b>
   <%= @album.description %>
 </p>
-<div>
+</div>
+	<% i=1%>
 	<% @album.photos.each do |photo| %>
-	  <%= link_to image_tag(photo.image.url(:medium), :border =>0, :class => 'thumb'),:controller =>'photos', :action => 'show', :id => photo %>
-	<% end %>
+	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
+	  <%= link_to image_tag(photo.image.url(:square), :border =>0, :class => 'thumb'),:controller =>'photos', :action => 'show', :id => photo %>
 	</div>
+	<%-i = i+1 -%>
+	<%- if i==6 -%>
+	<%-i=0 end-%>
+	<% end %>
+
 
 <%- if user_signed_in?-%>
 <%= link_to 'Edit', edit_album_path(@album) %> |

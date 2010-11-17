@@ -1,8 +1,8 @@
 <h1>Tags</h1>
-<div id="categories">
+<% i=0%>
 <% @tags.each do |tag| %>
 		<%- if !tag.photos.empty?  || user_signed_in? -%>
-	<div class="category">
+	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
 		<div class="triangle left"></div>
 		<span class="leftAlign"><%= tag.name %></span>
 		<%= link_to image_tag(randomMediumPicture(tag), :border =>0),:controller =>'tags', :action => 'show', :id => tag %>
@@ -11,8 +11,11 @@
 		<span class="rightAlign"><%= link_to 'Edit', edit_tag_path(tag)%> | <%= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete %></span>
 		<%-end-%>
 	</div>
+	<%-i = i+1 -%>
+	<%- if i==6 -%>
+	<%-i=0 end-%>
 	<%-end-%>
-<% end %>
-</div>
+	<% end %>
+
 
 <%= link_to image_tag('add.png'), new_tag_path, :class =>'add' if user_signed_in?%>

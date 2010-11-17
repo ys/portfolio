@@ -32,4 +32,5 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise', :require => 'devise'
 gem 'gstore', :require => 'gstore'
 gem 'bookis-paperclip', :require => 'paperclip'
+gem 'restfulie'
 # end

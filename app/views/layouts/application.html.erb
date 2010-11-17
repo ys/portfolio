@@ -14,17 +14,34 @@ jQuery.noConflict();
 <div id="head" class="grid_24">
 	
 <ul id="menu">
+<li <%- if(request.path.starts_with?(photos_path) ||
+	  	request.path.starts_with?(albums_path) ||
+		request.path.starts_with?(cameras_path)||
+		request.path.starts_with?(films_path)  || 
+		request.path.starts_with?(tags_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Portfolio', photos_path%></li>
+<li <%- if(request.path.starts_with?('/inspiration')) -%>class="currentPage"<%-end-%>><%= link_to 'Inspiration', '/inspiration'%></li>
+<li <%- if(request.path.starts_with?('/recipes')) -%>class="currentPage"<%-end-%>><%= link_to 'Recipes', '/recipes'%>
+
+<li <%- if(request.path.starts_with?('/about')) -%>class="currentPage"<%-end-%>><%= link_to 'Me Me Me', '/about'%></li>
+
+</ul>
+<span id="title"><%= link_to image_tag("logo1.png", :mouseover =>"logo2.png"), '/'%></span>
+</div>
+<div id="leftColumn" class="grid_12 push_12">
+<%- if( request.path.starts_with?(photos_path) ||
+	  	request.path.starts_with?(albums_path) ||
+		request.path.starts_with?(cameras_path)||
+		request.path.starts_with?(films_path)  || 
+		request.path.starts_with?(tags_path)) -%>
+<ul id="leftMenu">
 <li <%- if(request.path.starts_with?(photos_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Photos', photos_path%></li>
 <li <%- if(request.path.starts_with?(albums_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Albums', albums_path%></li>
 <li <%- if(request.path.starts_with?(cameras_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Cameras', cameras_path%></li>
 <li <%- if(request.path.starts_with?(films_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Films', films_path%></li>
 <li <%- if(request.path.starts_with?(tags_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Tags', tags_path%></li>
-<li <%- if(request.path.starts_with?('/about')) -%>class="currentPage"<%-end-%>><%= link_to 'About', '/about'%></li>
-
 </ul>
-<span id="title"><%= link_to image_tag("logo1.png", :mouseover =>"logo2.png"), '/'%></span>
-</div>
-<div id="content" class="grid_24">
+<%-end-%>
+</div><div id="content" class=" grid_23 push_1">
 <%= yield %>
 </div>
 <div id="footer" class="grid_22 push_1">

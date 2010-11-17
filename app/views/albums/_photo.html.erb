@@ -1,22 +1,7 @@
 <div class="photo">
  <b>PHOTO:</b>
   <% form.fields_for :photos, photo, :child_index => (photo.new_record? ? "index_to_replace_with_js" : nil) do |photo_form| %>
- <p>
-    <%= photo_form.label :name %><br />
-    <%= photo_form.text_field :name %>
-  </p>
-  <p>
-    <%= photo_form.label :description %><br />
-    <%= photo_form.text_area :description %>
-</p>
-<p>
-    <%= photo_form.label :taken %><br />
-    <%= photo_form.date_select :taken %>
-</p>
-<p>
-    <%= photo_form.label :xpro %><br />
-    <%= photo_form.check_box :xpro %>
-</p>
+
 <p>
     <%= photo_form.label :camera %><br />
     <%= photo_form.collection_select( :camera_id, @cameras, :id, :fullName, :prompt => 'Please select camera') %>

@@ -1,24 +1,27 @@
 <p id="notice"><%= notice %></p>
-  <b>Type:</b>
-  <%= @film.type %>
-  |  
-  <b>Format:</b>
-  <%= @film.format %>
-  |  
-  <b>Brand:</b>
-  <%= @film.brand %>
-  |  
-  <b>Name:</b>
-  <%= @film.name %>
-  |  
-  <b>Description:</b>
-  <%= @film.description %>
-</p>
-<div>
-	<% @film.photos.each do |photo| %>
-	  <%= link_to image_tag(photo.image.url(:medium), :border =>0, :class => 'thumb'),:controller =>'photos', :action => 'show', :id => photo %>
-	<% end %>
+<div class="category grid_4 alpha">
+	<p>
+ 	  <b>Type:</b>
+	  <%= @film.type %>
+	  <b>Format:</b>
+	  <%= @film.format %>
+	  <b>Brand:</b>
+	  <%= @film.brand %>
+	  <b>Name:</b>
+	  <%= @film.name %>
+	  <b>Description:</b>
+	  <%= @film.description %>
+	</p>
 </div>
+	<%-i=1-%>
+	<% @film.photos.each do |photo| %>
+	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
+	  <%= link_to image_tag(photo.image.url(:square), :border =>0, :class => 'thumb'),:controller =>'photos', :action => 'show', :id => photo %>
+	</div>
+	<%-i = i+1 -%>
+	<%- if i==6 -%>
+	<%-i=0 end-%>
+	<% end %>
 <%-if user_signed_in?-%>
 <%= link_to 'Edit', edit_film_path(@film) %> |
 <%-end-%>
