@@ -120,7 +120,7 @@ div.field, div.actions {
 	position:relative;
 }
 .category{
-	overflow-y:auto;
+	overflow-y:scroll;
 	background-color:#222222;
 	float:left;
 	position:relative;
