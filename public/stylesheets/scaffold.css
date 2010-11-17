@@ -119,8 +119,10 @@ div.field, div.actions {
 	float:left;
 	position:relative;
 }
+.desc{
+	overflow-y:auto;
+}
 .category{
-	overflow-y:scroll;
 	background-color:#222222;
 	float:left;
 	position:relative;
@@ -133,6 +135,7 @@ div.field, div.actions {
 	width:100%;
 }
 .category p{
+	width:100%;
 	margin:5px;
 }
 .category img{
