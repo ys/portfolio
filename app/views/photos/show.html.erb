@@ -1,7 +1,19 @@
+
+<div class="photo grid_15">
+
+<div class="triangle right"></div>
+<span class="rightAlign">
+	<%- if user_signed_in? -%>
+	<%= link_to 'Edit', edit_photo_path(@photo) if user_signed_in? %> |
+	<%-end-%>
+	<%= link_to 'Back', photos_path %>
+</span>
+
+	<%= image_tag @photo.image.url(:web) %>
+</div>
+
+<span class="grid_7 photoDesc">
 <p id="notice"><%= notice %></p>
-<div class="photo grid_20 push_2">
-<div class="triangle left"></div>
-<span class="leftAlign">
 <p>
   <b>Name:</b>
   <%= @photo.name %>
@@ -10,11 +22,6 @@
 <p>
   <b>Description:</b>
   <%= @photo.description %>
-</p>
-
-<p>
-  <b>Taken:</b>
-  <%= @photo.taken %>
 </p>
 
 <p>
@@ -32,22 +39,7 @@
   <b>Film:</b>
   <%= link_to @photo.film.fullName,:controller =>'films', :action => 'show', :id => @photo.film if( @photo.film != nil)%>
 </p>
-<p>
-  <b>Created_at:</b>
-  <%= @photo.created_at %>
-</p>
+
 </span>
-<div class="triangle right"></div>
-<span class="rightAlign">
-	<%- if user_signed_in? -%>
-	<%= link_to 'Edit', edit_photo_path(@photo) if user_signed_in? %> |
-	<%-end-%>
-	<%= link_to 'Back', photos_path %>
-</span>
-
-	<%= image_tag @photo.image.url %>
-</div>
-
-
 
 
