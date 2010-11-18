@@ -3,7 +3,6 @@
 <% @films.each do |film| %>
 <%- if !film.photos.empty?  || user_signed_in? -%>
 	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
-		<div class="triangle left"></div>
 		<span class="leftAlign"><%= film.fullName %></span>
 		<%= link_to image_tag(randomMediumPicture(film), :border =>0),:controller =>'films', :action => 'show', :id => film %>
 		<%- if user_signed_in? -%>
