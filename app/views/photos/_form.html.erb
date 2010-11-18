@@ -10,8 +10,8 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<% if false %>
+<div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
@@ -35,11 +35,6 @@
     <%= f.label :film %><br />
     <%= f.collection_select( :film_id, @films, :id, :fullName, :prompt => 'Please select film') %>
   </div>
-
-
-  <%= f.file_field :image %>
-
-
 <div>
 	<%= f.label :tags %><br />
 <% for tag in Tag.find(:all) %>
@@ -56,8 +51,42 @@
   <%= album.name %>
 <% end %>
 </div>
+<% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= f.file_field :image %>
+
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<script type="text/javascript">
+<%- session_key = Rails.application.config.session_options[:key] -%>
+jQuery(function () {
+    
+  var uploadify_script_data = {};
+  
+  // Fetch the CSRF meta tag data
+  var csrf_token = jQuery('meta[name=csrf-token]').attr('content');
+  var csrf_param = jQuery('meta[name=csrf-param]').attr('content');
+  
+  // Now associate the data in the config, encoding the data safely
+  uploadify_script_data[csrf_param] = encodeURI(encodeURI(csrf_token));
+  
+  // Associate the session information
+  uploadify_script_data['<%= session_key %>'] = '<%= cookies[session_key] %>';
+  
+  jQuery('#photo_image').uploadify({
+    script : '/photos',
+	uploader  : '/javascripts/jquery.uploadify/uploadify.swf',
+	multi: true,
+	fileDataName: 'image',
+	cancelImg: '/images/cancel.png',
+    scriptData : uploadify_script_data
+  }); 
+jQuery('#photo_submit').click(function(event){
+event.preventDefault();
+jQuery('#photo_image').uploadifyUpload();
+});  
+});
+</script>
 <% end %>

@@ -47,12 +47,6 @@ class AlbumsController < ApplicationController
   # POST /albums.xml
   def create
     @album = Album.new(params[:album])
-    i = 0
-    @album.photos.each do|photo| 
-      photo.description =  @album.description
-      photo.name =  @album.name+'-'+i.to_s
-      i = i+1
-    end
     respond_to do |format|
       if @album.save
         format.html { redirect_to(@album, :notice => 'Album was successfully created.') }

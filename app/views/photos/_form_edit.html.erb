@@ -1,0 +1,62 @@
+<%= form_for @photo, :html => { :multipart => true } do |f| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :taken %><br />
+    <%= f.date_select :taken %>
+  </div>
+  <div class="field">
+    <%= f.label :xpro %><br />
+    <%= f.check_box :xpro %>
+  </div>
+  <div class="field">
+    <%= f.label :camera %><br />
+    <%= f.collection_select( :camera_id, @cameras, :id, :fullName, :prompt => 'Please select camera') %>
+  </div>
+  <div class="field">
+    <%= f.label :film %><br />
+    <%= f.collection_select( :film_id, @films, :id, :fullName, :prompt => 'Please select film') %>
+  </div>
+<div>
+	<%= f.label :tags %><br />
+<% for tag in Tag.find(:all) %>
+
+  <%= check_box_tag "photo[tag_ids][]", tag.id, @photo.tags.include?(tag) %>
+  <%= tag.name %>
+<% end %>
+
+<div>
+	<%= f.label :albums %><br />
+<% for album in Album.find(:all) %>
+
+  <%= check_box_tag "photo[album_ids][]", album.id, @photo.albums.include?(album) %>
+  <%= album.name %>
+<% end %>
+</div>
+
+
+
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+<% end %>

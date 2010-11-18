@@ -33,4 +33,6 @@ gem 'devise', :require => 'devise'
 gem 'gstore', :require => 'gstore'
 gem 'bookis-paperclip', :require => 'paperclip'
 gem 'restfulie'
+gem 'mime-types', :require => 'mime/types'
+gem 'jquery-rails'
 # end

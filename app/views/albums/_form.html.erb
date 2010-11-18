@@ -19,12 +19,6 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
-<div id="photos">
-     <% if @album.new_record? %>
-       <%= render :partial => 'photo', :locals => { :form => f, :photo => @album.photos.build } %>
-    <% end %>
-  </div>
-  <%= add_object_link("New Photo", f, @album.photos.build, "photo", "#photos") %>
   <div class="actions">
     <%= f.submit %>
   </div>

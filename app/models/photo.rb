@@ -10,4 +10,8 @@ class Photo < ActiveRecord::Base
     :bucket => "eatcpcks",
     :path => ":attachment/:id/:style.:extension",
     :google_storage_credentials => "#{RAILS_ROOT}/config/storage.yml"
+    
+    # Paperclip Validations
+    validates_attachment_presence :image
+    #validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg']
 end

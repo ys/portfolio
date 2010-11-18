@@ -1,7 +1,6 @@
 class PhotosController < ApplicationController
   require "kconv"
 
-
   # GET /photos
   # GET /photos.xml
   def index
@@ -56,10 +55,13 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.xml
   def create
-    @photo = Photo.new(params[:photo])
+    params[:image].content_type = MIME::Types.type_for(params[:image].original_filename).to_s  
+    @photo = Photo.new
+    @photo.image = params[:image]
+    @photo.name = params[:image].original_filename
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to(@photo, :notice => 'Photo was successfully created.') }
+        format.html { head :ok }
         format.xml  { render :xml => @photo, :status => :created, :location => @photo }
         format.json  { render :json => @photo, :status => :created, :location => @photo }
       else
