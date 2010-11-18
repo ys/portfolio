@@ -14,4 +14,14 @@ class Photo < ActiveRecord::Base
     # Paperclip Validations
     validates_attachment_presence :image
     #validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg']
+    validates_attachment_size :image, :less_than => 10.megabytes,
+        :message => 'filesize must be less than 10 MegaBytes'
+      validates_attachment_content_type :image, :content_type => [ 'image/jpeg' ],
+                    :message => 'file must be of filetype .jpeg'
+
+
+      def set_mime_type(data)
+        data.content_type = MIME::Types.type_for(data.original_filename)[0].to_s
+        self.image = data
+      end
 end
