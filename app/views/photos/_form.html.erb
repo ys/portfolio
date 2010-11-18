@@ -28,7 +28,7 @@ jQuery(function () {
   var csrf_param = jQuery('meta[name=csrf-param]').attr('content');
   
   // Now associate the data in the config, encoding the data safely
-  uploadify_script_data[csrf_param] = encodeURI(encodeURI(csrf_token));
+  uploadify_script_data[csrf_param] = encodeURIComponent(encodeURIComponent(csrf_token));
   
   // Associate the session information
   uploadify_script_data['<%= session_key %>'] = '<%= cookies[session_key] %>';
