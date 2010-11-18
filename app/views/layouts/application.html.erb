@@ -27,7 +27,7 @@
 <li <%- if(request.path.starts_with?('/about')) -%>class="currentPage"<%-end-%>><%= link_to 'Me Me Me', '/about'%></li>
 
 </ul>
-<span id="title"><%= link_to image_tag("logo1.png", :mouseover =>"logo2.png"), '/'%></span>
+<span id="title"><%= link_to image_tag("http://commondatastorage.googleapis.com/eatcpcks/images/logo1.png", :mouseover =>"http://commondatastorage.googleapis.com/eatcpcks/images/logo2.png"), '/'%></span>
 </div>
 <div id="leftColumn" class="grid_12 push_12">
 <%- if( request.path.starts_with?(photos_path) ||

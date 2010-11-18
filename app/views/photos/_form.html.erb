@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<%= f.file_field :image %>
+<%= f.file_field :image, :multiple =>"multiple" %>
 
 
 <div class="actions">
@@ -19,7 +19,7 @@
 </div>
 <script type="text/javascript">
 <%- session_key = Rails.application.config.session_options[:key] -%>
-jQuery(function () {
+$(function () {
     
   var uploadify_script_data = {};
   

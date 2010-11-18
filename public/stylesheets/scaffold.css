@@ -22,7 +22,7 @@ html,body {
 	margin:0;
 	padding:0;
 	height: 100%;
-	background: url(../images/back1.jpg) repeat;
+	background: url(http://commondatastorage.googleapis.com/eatcpcks/images/back1.jpg) repeat;
 }
 
 body, p, ol, ul, td {
@@ -123,6 +123,10 @@ div.field, div.actions {
 	overflow-y:auto;
 }
 .category{
+	-webkit-box-shadow: 0px 0px 8px #222;
+	-moz-box-shadow: 0px 0px 8px #222;
+	box-shadow: 0px 0px 8px #222;
+	
 	background-color:#222222;
 	float:left;
 	position:relative;
@@ -246,7 +250,7 @@ h1{
 	border-top:8px solid #EDECD8;
 }
 
-.add{position:absolute;bottom:10px;right:-40px;}
+.add{position:absolute;bottom:-50px;right:-40px;}
 .add img{height:50px;}
 
 #footer{

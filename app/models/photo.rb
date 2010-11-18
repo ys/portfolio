@@ -5,7 +5,7 @@ class Photo < ActiveRecord::Base
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :albums
   has_attached_file :image,
-    :styles => { :medium => "300x300>", :thumb => "100x100>", :square => "300x300#" },
+    :styles => { :medium => "300x300>", :thumb => "100x100>", :square => "300x300#" , :web =>"1000x1000>"},
     :storage => :googlestorage,
     :bucket => "eatcpcks",
     :path => ":attachment/:id/:style.:extension",

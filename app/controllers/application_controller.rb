@@ -1,4 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :authenticate_user!, :except => [:show, :index]
+  
+  protected
+    def is_user!    
+      if authenticate_user!      
+        unless current_user.email == 'yannick.schutz@gmail.com'        
+          flash[:warning] = "You're not the right user!"
+          redirect_to root_url
+        end
+      end
+    end
+  
 end

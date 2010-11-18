@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(:version => 20101118085143) do
 
   create_table "albums", :force => true do |t|
-    t.string    "name"
-    t.text      "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "name"
+    t.text     "description", :limit => 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "albums_photos", :id => false, :force => true do |t|
@@ -25,39 +25,39 @@ ActiveRecord::Schema.define(:version => 20101118085143) do
   end
 
   create_table "cameras", :force => true do |t|
-    t.string    "name"
-    t.string    "model"
-    t.string    "brand"
-    t.string    "nickname"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "name"
+    t.string   "model"
+    t.string   "brand"
+    t.string   "nickname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "films", :force => true do |t|
-    t.string    "type"
-    t.string    "format"
-    t.string    "brand"
-    t.string    "name"
-    t.string    "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "iso"
+    t.string   "type"
+    t.string   "format"
+    t.string   "brand"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "iso"
   end
 
   create_table "photos", :force => true do |t|
-    t.string    "name"
-    t.string    "description"
-    t.date      "taken"
-    t.boolean   "xpro"
-    t.integer   "camera_id"
-    t.integer   "film_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "image_file_name"
-    t.string    "image_content_type"
-    t.integer   "image_file_size"
-    t.timestamp "image_updated_at"
-    t.boolean   "published"
+    t.string   "name"
+    t.string   "description"
+    t.date     "taken"
+    t.boolean  "xpro"
+    t.integer  "camera_id"
+    t.integer  "film_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.boolean  "published"
   end
 
   create_table "photos_tags", :id => false, :force => true do |t|
@@ -66,26 +66,26 @@ ActiveRecord::Schema.define(:version => 20101118085143) do
   end
 
   create_table "tags", :force => true do |t|
-    t.string    "name"
-    t.string    "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string    "email",                               :default => "", :null => false
-    t.string    "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string    "password_salt",                       :default => "", :null => false
-    t.string    "reset_password_token"
-    t.string    "remember_token"
-    t.timestamp "remember_created_at"
-    t.integer   "sign_in_count",                       :default => 0
-    t.timestamp "current_sign_in_at"
-    t.timestamp "last_sign_in_at"
-    t.string    "current_sign_in_ip"
-    t.string    "last_sign_in_ip"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "reset_password_token"
+    t.string   "remember_token"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                       :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

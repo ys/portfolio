@@ -1,4 +1,5 @@
 class StaticController < ApplicationController
+  before_filter :is_user!, :except => [:show, :index] 
   require 'open-uri'
   require 'rss'
   def show

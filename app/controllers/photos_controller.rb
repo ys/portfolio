@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_filter :is_user!, :except => [:show, :index] 
   require "kconv"
 
   # GET /photos
@@ -55,19 +56,19 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.xml
   def create
-    @photo = Photo.new
-    @photo.set_mime_type(params[:image])
-    @photo.name = params[:image].original_filename
+    params[:photo].image.each do |image|
+      photo = Photo.new
+      photo.set_mime_type(image)
+      photo.name = image.original_filename
+      photo.save
+    end
+    
     respond_to do |format|
-      if @photo.save
+      
         format.html { head :ok }
         format.xml  { render :xml => @photo, :status => :created, :location => @photo }
         format.json  { render :json => @photo, :status => :created, :location => @photo }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
-        format.json  { render :json => @photo.errors, :status => :unprocessable_entity}
-      end
+      
     end
   end
 

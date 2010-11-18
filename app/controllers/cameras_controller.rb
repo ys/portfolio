@@ -1,4 +1,5 @@
 class CamerasController < ApplicationController
+  before_filter :is_user!, :except => [:show, :index] 
   # GET /cameras
   # GET /cameras.xml
   def index

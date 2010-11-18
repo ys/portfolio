@@ -1,4 +1,5 @@
 class FilmsController < ApplicationController
+  before_filter :is_user!, :except => [:show, :index] 
   # GET /films
   # GET /films.xml
   def index

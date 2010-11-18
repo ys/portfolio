@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  before_filter :is_user!, :except => [:show, :index] 
   # GET /tags
   # GET /tags.xml
   def index
