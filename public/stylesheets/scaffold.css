@@ -156,7 +156,7 @@ div.field, div.actions {
 
 }
 .photo img{
-
+	display:block;
 	width:100%;
 }
 .photoDesc{
