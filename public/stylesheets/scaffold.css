@@ -317,3 +317,61 @@ h1{
 	font-size:40px;
 	font-family:ClumsyRegular;
 }
+
+
+.nivo-controlNav a {
+	display:block;
+	width:22px;
+	height:22px;
+	background:url(images/bullets.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin-right:3px;
+	float:left;
+}
+.nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+
+.nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	background:url(images/arrows.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+a.nivo-nextNav {
+	background-position:-30px 0;
+	right:15px;
+}
+a.nivo-prevNav {
+	left:15px;
+}
+.nivo-slice{
+	height:200px;
+	overflow:hidden;
+}
+#hider{
+	height:300px;
+	overflow:hidden;
+	position:relative;
+	-webkit-box-shadow: 0px 0px 8px #222;
+	-moz-box-shadow: 0px 0px 8px #222;
+	box-shadow: 0px 0px 8px #222;
+	border:8px solid #EDECD8;
+	margin-bottom:10px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+}
+#slider{
+	position:absolute;
+	top:-95%;
+}
+.slide img {
+	width:950px;
+}
+h1,h2{
+	font-family:ClumsyRegular;
+  line-height: 38px;
+}

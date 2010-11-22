@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Do You Eat Cupcakes?</title>
+<title><%=h yield_for(:title, "Do You Eat Cupcakes")%></title>
 <%= stylesheet_link_tag :all %>
 <%= javascript_include_tag :defaults %>
-<%= javascript_include_tag 'swfobject','uploadify' %>
+<%= javascript_include_tag 'swfobject','uploadify', 'jquery.nivo.slider.pack' %>
 
 <%= csrf_meta_tag %>
 <script>
@@ -12,6 +12,7 @@
 </script>
 </head>
 <body>
+
 <div id="body" class="container_24">
 <div id="head" class="grid_24">
 	
@@ -21,7 +22,7 @@
 		request.path.starts_with?(cameras_path)||
 		request.path.starts_with?(films_path)  || 
 		request.path.starts_with?(tags_path)||  request.path=='/') -%>class="currentPage"<%-end-%>><%= link_to 'Portfolio', photos_path%></li>
-<li <%- if(request.path.starts_with?('/inspiration')) -%>class="currentPage"<%-end-%>><%= link_to 'Inspiration', '/inspiration'%></li>
+<li <%- if(request.path.starts_with?('/inspiration')) -%>class="currentPage"<%-end-%>><%= link_to 'Inspiration', 'http://dont.eatcupcak.es', :target => "blank"%></li>
 <li <%- if(request.path.starts_with?('/recipes')) -%>class="currentPage"<%-end-%>><%= link_to 'Recipes', '/recipes'%>
 
 <li <%- if(request.path.starts_with?('/about')) -%>class="currentPage"<%-end-%>><%= link_to 'Me Me Me', '/about'%></li>

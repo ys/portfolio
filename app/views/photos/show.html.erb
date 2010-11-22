@@ -1,4 +1,4 @@
-
+<% content_for :title, "Do You eat cupcakes | "+@photo.name %>
 <div class="photo grid_16 alpha">
 <div class="triangle right"></div>
 <span class="rightAlign">
@@ -37,7 +37,9 @@
   <b>Film:</b>
   <%= link_to @photo.film.fullName,:controller =>'films', :action => 'show', :id => @photo.film if( @photo.film != nil)%>
 </p>
-
+<p>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="eatcpcks">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</p>
 </span>
 
 

@@ -5,6 +5,7 @@ class StaticController < ApplicationController
   def show
     @page = params[:static]
     @rss = nil
+    @lastPhotos = nil
     if @page =='inspiration'
       url = "http://dont.eatcupcak.es/rss"         # Argument for feed to parse via CMD
       content = ""              # Var to store feed content
@@ -28,6 +29,9 @@ class StaticController < ApplicationController
         i=i+1 if i <=3
         i=0 if i>3
       end
+    end
+    if @page == 'faq'
+      @lastPhotos = Photo.find(:all)
     end
     render @page
   end

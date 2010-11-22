@@ -20,8 +20,8 @@ Eatcpcks::Application.routes.draw do
   resources :cameras do
     resources :photos
   end
-  
-   root :to => "photos#index"
+  root :to => "static#show", :defaults => { :static => 'faq' }
+   #root :to => "photos#index"
    match ':static' => 'static#show'
 
 
