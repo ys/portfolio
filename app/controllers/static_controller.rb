@@ -32,7 +32,7 @@ class StaticController < ApplicationController
       end
     end
     if @page == 'faq'
-      @lastPhotos = Photo.find(:all)
+      @lastPhotos = Photo.find(:all, :order=>'id DESC', :limit => 5)
     end
     render @page
   end
