@@ -323,7 +323,7 @@ h1{
 	display:block;
 	width:22px;
 	height:22px;
-	background:url(images/bullets.png) no-repeat;
+	background:url(../images/bullets.png) no-repeat;
 	text-indent:-9999px;
 	border:0;
 	margin-right:3px;
@@ -337,7 +337,7 @@ h1{
 	display:block;
 	width:30px;
 	height:30px;
-	background:url(images/arrows.png) no-repeat;
+	background:url(../images/arrows.png) no-repeat;
 	text-indent:-9999px;
 	border:0;
 }
