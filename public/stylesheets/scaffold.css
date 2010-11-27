@@ -350,16 +350,7 @@ a.nivo-nextNav, .next {
 a.nivo-prevNav, .previous {
 	left:15px;
 }
-.next{
-	position:absolute;
-	right:-40px;
-	top:50%;
-}
-.previous{
-	position:absolute;
-	left:-40px;
-	top:50%;
-}
+
 .nivo-slice{
 	height:200px;
 	overflow:hidden;
@@ -447,4 +438,13 @@ width: 0px;
 	border:13px solid transparent;
 	border-bottom-color:#fff;
 }
-
+.next{
+	position:absolute;
+	right:-40px;
+	top:50%;
+}
+.previous{
+	position:absolute;
+	left:-40px;
+	top:50%;
+}
