@@ -41,7 +41,7 @@ jQuery(function ($) {
             var el      = this,
                 method  = el.attr('method') || el.attr('data-method') || 'GET',
                 url     = el.attr('action') || el.attr('href'),
-                dataType  = el.attr('data-type')  || ($.ajaxSettings && $.ajaxSettings.dataType) || 'script';
+                dataType  = el.attr('data-type')  || ($.ajaxSettings && $.ajaxSettings.dataType);
 
             if (url === undefined) {
                 throw "No URL specified for remote call (action or href must be present).";
@@ -54,6 +54,7 @@ jQuery(function ($) {
                         dataType: dataType,
                         type: method.toUpperCase(),
                         beforeSend: function (xhr) {
+                            xhr.setRequestHeader("Accept", "text/javascript");
                             el.trigger('ajax:loading', xhr);
                         },
                         success: function (data, status, xhr) {

@@ -19,13 +19,13 @@
 </div>
 <script type="text/javascript">
 <%- session_key = Rails.application.config.session_options[:key] -%>
-jQuery(function () {
+$(function () {
     
   var uploadify_script_data = {};
   
   // Fetch the CSRF meta tag data
-  var csrf_token = jQuery('meta[name=csrf-token]').attr('content');
-  var csrf_param = jQuery('meta[name=csrf-param]').attr('content');
+  var csrf_token = $('meta[name=csrf-token]').attr('content');
+  var csrf_param = $('meta[name=csrf-param]').attr('content');
   
   // Now associate the data in the config, encoding the data safely
   uploadify_script_data[csrf_param] = encodeURIComponent(encodeURIComponent(csrf_token));
@@ -33,7 +33,7 @@ jQuery(function () {
   // Associate the session information
   uploadify_script_data['<%= session_key %>'] = '<%= cookies[session_key] %>';
   
-  jQuery('#photo_image').uploadify({
+  $('#photo_image').uploadify({
     script : '/photos',
 	uploader  : '/javascripts/uploadify.swf',
 	multi: true,
@@ -41,9 +41,9 @@ jQuery(function () {
 	cancelImg: '/images/cancel.png',
     scriptData : uploadify_script_data
   }); 
-jQuery('#photo_submit').click(function(event){
+$('#photo_submit').click(function(event){
 event.preventDefault();
-jQuery('#photo_image').uploadifyUpload();
+$('#photo_image').uploadifyUpload();
 });  
 });
 </script>

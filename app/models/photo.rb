@@ -1,5 +1,6 @@
 class Photo < ActiveRecord::Base
-
+  
+  attr_accessor :tagslist
   belongs_to :camera
   belongs_to :film
   has_and_belongs_to_many :tags
@@ -23,5 +24,12 @@ class Photo < ActiveRecord::Base
       def set_mime_type(data)
         data.content_type = MIME::Types.type_for(data.original_filename)[0].to_s
         self.image = data
+      end
+      def previous
+        self.class.first(:conditions => ["id < ?", id], :order => "id desc")
+      end
+
+      def next
+        self.class.first(:conditions => ["id > ?", id], :order => "id asc")
       end
 end

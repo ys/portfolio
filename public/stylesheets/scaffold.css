@@ -21,12 +21,13 @@ html,body {
 	color: #EDECD8;
 	margin:0;
 	padding:0;
-	height: 100%;
-	background: url(http://commondatastorage.googleapis.com/eatcpcks/images/back1.jpg) repeat;
+	height:100%;
+	/**background: url(http://commondatastorage.googleapis.com/eatcpcks/images/back1.jpg) repeat;**/
+	background: url(../images/bg-all-grid-24x24.png) repeat;
 }
 
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'Myriad Pro', verdana , arial, helvetica, sans-serif;
   font-size:   13px;
   line-height: 18px;
 }
@@ -91,8 +92,7 @@ div.field, div.actions {
 }
 #leftColumn{
 	background:rgba(2,174,192,0.6);
-	border-radius:20px;
-	-moz-border-radius:20px;
+
 	margin-top:30px;
 }
 #leftMenu{
@@ -101,7 +101,7 @@ div.field, div.actions {
 	
 }
 #leftMenu li{
-	font-family:ClumsyRegular;
+	/**font-family:ClumsyRegular;**/
 	font-size:20px;
 	margin: 0px 15px 10px 0;
 	position:relative;
@@ -189,7 +189,7 @@ div.field, div.actions {
 	background-color:#EDECD8;
 	padding:3px 10px 3px 3px;
 	color:#222222;
-	height:20px;
+	height:15px;
 	width:100%;
 	position:absolute;
 	overflow: hidden;
@@ -282,7 +282,7 @@ h1{
 
 	height:40px;
 	line-height:40px;
-	font-family:ClumsyRegular;
+	/**font-family:ClumsyRegular;**/
 	font-size:23px;
 	float:left;
 	margin-right:15px;
@@ -303,19 +303,19 @@ h1{
 	padding-top:40px;
 	font-size:35px;
 	text-align:center;
-	font-family:ClumsyRegular;
+	/**font-family:ClumsyRegular;**/
 	margin-top:40px;
 	height:150px;
 	border-top:10px dashed rgba(237,236,216,0.6);
 }
 .pdf{
-	font-family:ClumsyRegular;
+	/**font-family:ClumsyRegular;**/
 	font-size:23px;
 	color:#EDECD8;
 }
 .later{
 	font-size:40px;
-	font-family:ClumsyRegular;
+	/**font-family:ClumsyRegular;**/
 }
 
 
@@ -333,7 +333,7 @@ h1{
 	background-position:0 -22px;
 }
 
-.nivo-directionNav a {
+.nivo-directionNav a , .previous, .next {
 	display:block;
 	width:30px;
 	height:30px;
@@ -341,12 +341,24 @@ h1{
 	text-indent:-9999px;
 	border:0;
 }
-a.nivo-nextNav {
+
+
+a.nivo-nextNav, .next {
 	background-position:-30px 0;
 	right:15px;
 }
-a.nivo-prevNav {
+a.nivo-prevNav, .previous {
 	left:15px;
+}
+.next{
+	position:absolute;
+	right:-40px;
+	top:50%;
+}
+.previous{
+	position:absolute;
+	left:-40px;
+	top:50%;
 }
 .nivo-slice{
 	height:200px;
@@ -372,9 +384,67 @@ a.nivo-prevNav {
 	width:950px;
 }
 h1,h2{
-	font-family:ClumsyRegular;
+	/**font-family:ClumsyRegular;**/
   line-height: 38px;
 }
 .faqSpace{
 	text-align:center;
+	font-size:30px;
+	line-height: 38px;
 }
+
+#bubble{
+display:none;	background: white;
+	border: 5px solid rgba(2,174,192,1);
+	border-bottom-left-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+	color: #333;
+	margin: 1em 0px 3em;
+	padding: 15px;
+	width:200px;
+	height:10px;
+	top:40px;
+	right:0;
+	position:absolute;
+}
+#bubble::before {
+border-bottom-color: rgba(2,174,192,1);
+border: 20px solid;
+bottom: auto;
+left: auto;
+right: 40px;
+top: -40px;
+}
+#bubble::before {
+border: 20px solid;
+border-top-color: rgba(2,174,192,1);
+bottom: -40px;
+content: '';
+display: block;
+height: 0px;
+left: 40px;
+position: absolute;
+width: 0px;
+}
+/* creates the larger triangle */
+#bubble:before {
+	top:-40px; /* value = - border-top-width - border-bottom-width */
+	right:40px; /* controls horizontal position */
+	bottom:auto;
+	left:auto;
+	border:20px solid transparent;
+	border-bottom-color:rgba(2,174,192,1);
+}
+
+/* creates the smaller  triangle */
+#bubble:after {
+	top:-26px; /* value = - border-top-width - border-bottom-width */
+	right:47px; /* value = (:before right) + (:before border-right) - (:after border-right) */
+	bottom:auto;
+	left:auto;
+	border:13px solid transparent;
+	border-bottom-color:#fff;
+}
+

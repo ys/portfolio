@@ -93,7 +93,16 @@ class PhotosController < ApplicationController
   # PUT /photos/1.xml
   def update
     @photo = Photo.find(params[:id])
-
+    @tags = params[:photo][:tagslist].split(',')
+    @tags.each{|tagName|
+      @tag = Tag.find_by_name(tagName);
+      if @tag == nil
+        @tag = Tag.new
+        @tag.name = tagName
+        @tag.save
+      end
+      @photo.tags << @tag
+    }
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
         format.html { redirect_to(@photo, :notice => 'Photo was successfully updated.') }
