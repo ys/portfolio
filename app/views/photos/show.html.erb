@@ -2,8 +2,9 @@
 <%= link_to("Previous", @photo.previous, :class => 'previous') if @photo.previous %>
 <%= link_to("Next", @photo.next, :class => 'next') if @photo.next %>
 <div class="photo grid_16 alpha">
+	<%- if user_signed_in? -%>
 <div class="triangle right"></div>
-<%- if user_signed_in? -%>
+
 <span class="rightAlign">
 	<%= link_to 'Edit', edit_photo_path(@photo) if user_signed_in? %> |
 	
