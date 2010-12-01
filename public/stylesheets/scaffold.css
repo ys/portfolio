@@ -119,6 +119,10 @@ div.field, div.actions {
 	
 	border-bottom:3px solid #EDECD8;
 }
+#leftMenu li {
+	
+	border-bottom:3px solid transparent;
+}
 #content{
 	position:relative;
 	margin-top:40px;
@@ -476,7 +480,9 @@ width: 0px;
 	border-radius:5px;
 	-moz-border-radius:5px;
 }
-
+.links p{
+	margin: 15px;
+}
 .links ul ul {
 	list-style:none;
 	padding-left:0;
