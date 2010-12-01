@@ -27,6 +27,14 @@
     <%= f.label :nickname %><br />
     <%= f.text_field :nickname %>
   </div>
+<div>
+	<%= f.label :photos %><br />
+<% for photo in Photo.find(:all) %>
+
+  <%= check_box_tag "camera[photo_ids][]", photo.id, @camera.photos.include?(photo) %>
+  <%= image_tag(photo.image.url(:thumb), :border =>0, :class => 'thumb') %>
+<% end %>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

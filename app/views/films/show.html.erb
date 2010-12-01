@@ -25,4 +25,4 @@
 <%-if user_signed_in?-%>
 <%= link_to 'Edit', edit_film_path(@film) %> |
 <%-end-%>
-<%= link_to 'Back', films_path %>
+<%= link_to image_tag('bak.png'), films_path, :class =>'add'%>

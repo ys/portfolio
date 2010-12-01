@@ -30,23 +30,26 @@
   <b>Xpro:</b>
   <%= @photo.xpro %>
 </p>
-
+<%- if !@photo.camera!=nil%>
 <p>
   <b>Camera:</b>
-
 <%= link_to @photo.camera.fullName,:controller =>'cameras', :action => 'show', :id => @photo.camera if( @photo.camera != nil)%>
 </p>
-
+<%-end%>
 <p>
+	<%- if !@photo.film!=nil%>
   <b>Film:</b>
   <%= link_to @photo.film.fullName,:controller =>'films', :action => 'show', :id => @photo.film if( @photo.film != nil)%>
 </p>
+<%-end%>
+<%- if !@photo.tags.empty?%>
 <p>
 	<b>Tags:</b>
 	<% @photo.tags.each do |tag| %>
 		<%= link_to tag.name ,:controller =>'tags', :action => 'show', :id => tag %> 
 	<% end%>
 </p>
+<%-end%>
 <p>
 <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="eatcpcks">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
@@ -55,5 +58,5 @@
 
 
 </span>
-
+<%= link_to image_tag('bak.png'), photos_path, :class =>'add'%>
 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  difficulty: 1
+  preparation: 1
+  cookingTime: 1
+
+two:
+  name: MyString
+  difficulty: 1
+  preparation: 1
+  cookingTime: 1

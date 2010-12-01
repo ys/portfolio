@@ -31,14 +31,11 @@ $('a.close').click(function(){$('#bubble').fadeOut('slow');return false;});
 		request.path.starts_with?(films_path)  || 
 		request.path.starts_with?(tags_path)||  request.path=='/') -%>class="currentPage"<%-end-%>><%= link_to 'Portfolio', photos_path%></li>
 <li <%- if(request.path.starts_with?('/inspiration')) -%>class="currentPage"<%-end-%>><%= link_to 'Inspiration', 'http://dont.eatcupcak.es', :target => "blank"%></li>
-<li <%- if(request.path.starts_with?('/recipes')) -%>class="currentPage"<%-end-%>><%= link_to 'Recipes', '/recipes'%>
+<li <%- if(request.path.starts_with?(recipes_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Recipes', recipes_path%></li>
 
 <li <%- if(request.path.starts_with?('/about')) -%>class="currentPage"<%-end-%>><%= link_to 'Myself', '/about'%></li>
 
 </ul>
-
-<p id="bubble"><%= mail_to "yannick@eatcupcak.es", "Email me", :encode => "javascript"%>  | <a class="close" href="#">close</a></p>
-
 
 <span id="title"><%= link_to image_tag("http://commondatastorage.googleapis.com/eatcpcks/images/logo1.png", :mouseover =>"http://commondatastorage.googleapis.com/eatcpcks/images/logo2.png"), '/'%></span>
 </div>
@@ -63,6 +60,6 @@ $('a.close').click(function(){$('#bubble').fadeOut('slow');return false;});
 	This is not a website, this is a pictures oven!
 </div>
 </div>
-
+<p id="bubble"><%= mail_to "yannick@eatcupcak.es", "Email me", :encode => "javascript"%>  | <a class="close" href="#">close</a></p>
 </body>
 </html>

@@ -1,0 +1,55 @@
+<%= form_for(setup_recipe(@recipe)) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :difficulty %><br />
+    <%= f.text_field :difficulty %>
+  </div>
+  <div class="field">
+    <%= f.label :preparation %><br />
+    <%= f.text_field :preparation %>
+  </div>
+  <div class="field">
+    <%= f.label :cookingTime %><br />
+    <%= f.text_field :cookingTime %>
+  </div>
+<div>
+	<% f.fields_for :ingredients do |ingredient_form| %>
+	<%= render "ingredient_fields", :f => ingredient_form%>
+	      
+	    <% end %>
+	<%= link_to_add_fields "Add ingredient", f, :ingredients%>
+	</div>
+	<div>
+<% f.fields_for :steps do |step_form| %>
+      <%= render "step_fields", :f => step_form %>
+    <% end %>
+	<%= link_to_add_fields 'Add step', f, :steps%>
+</div>
+
+<div>
+	<%= f.label :photos %><br />
+	<% for photo in Photo.find(:all) %>
+
+	  <%= check_box_tag "recipe[photo_ids][]", photo.id, @recipe.photos.include?(photo) %>
+	  <%= image_tag(photo.image.url(:thumb), :border =>0, :class => 'thumb') %>
+	<% end %>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

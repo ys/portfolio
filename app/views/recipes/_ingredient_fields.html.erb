@@ -1,0 +1,15 @@
+<p>
+    <div>
+      <%= f.label :name, 'Ingredient:' %>
+      <%= f.text_field :name %>
+	  <%= f.label :quantity, 'Quantity:' %>
+	  <%= f.text_field :quantity %>
+    </div>
+
+    <% unless f.object.new_record? %>
+      <div>
+        <%= link_to_remove_fields "Remove ingredient", f %>
+
+      </div>
+    <% end %>
+  </p>

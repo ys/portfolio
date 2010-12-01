@@ -1,0 +1,52 @@
+
+
+
+<p id="notice"><%= notice %></p>
+<%i=0%>
+
+<div class="steps  grid_4 alpha">
+<p>
+	  <b>Name:</b>
+	  <%= @recipe.name %><br/>
+	  <b>Difficulty:</b>
+	  <%= @recipe.difficulty %><br/>
+	  <b>Preparation:</b>
+	  <%= @recipe.preparation %><br/>
+	  <b>Cookingtime:</b>
+	  <%= @recipe.cookingTime %><br/>
+</p>
+</div>
+	
+	<div class="steps grid_9">
+		<ul>
+	<% @recipe.ingredients.each do |ingredient| %>
+		<% line = ingredient.quantity+ " of " + ingredient.name if ingredient.quantity != ''%>
+		<% line =  ingredient.name if ingredient.quantity == ''%>
+	  <li><%=line%></li>
+	
+	<% end %>
+	</ul>
+	</div>
+	<div class="steps grid_10 omega">
+		<ol>
+	<% @recipe.steps.each do |step| %>
+	
+	<li>  <%=step.desc%></li>
+
+	<% end %>
+	</ol>
+	</div>
+	<div class="grid_24 alpha omega">
+	<% @recipe.photos.each do |photo| %>
+	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
+	  <%= link_to image_tag(photo.image.url(:square), :border =>0, :class => 'thumb'),:controller =>'photos', :action => 'show', :id => photo %>
+	</div>
+	<%-i = i+1 -%>
+	<%- if i==6 -%>
+	<%-i=0 end-%>
+	<% end %>
+	</div>
+<%-if user_signed_in?-%>
+	<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%-end-%>
+<%= link_to image_tag('bak.png'), recipes_path, :class =>'add'%>

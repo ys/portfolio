@@ -1,0 +1,18 @@
+<h1>Recipes</h1>
+	<% i=0%>
+<% @recipes.each do |recipe| %>
+<%- if !recipe.photos.empty?  || user_signed_in? -%>
+	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
+		<span class="leftAlign"><%= recipe.name %></span>
+		<%= link_to image_tag(randomMediumPicture(recipe), :border =>0),:controller =>'recipes', :action => 'show', :id => recipe %>
+		<%- if user_signed_in? -%>
+		<div class="triangle right"></div>
+		<span class="rightAlign"><%= link_to 'Edit', edit_recipe_path(recipe) %> | <%= link_to 'Destroy', recipe, :confirm => 'Are you sure?', :method => :delete %></span>
+		
+		<%- end -%>
+		<%-i = i+1 -%>
+		<%- if i==6 -%>
+		<%-i=0 end-%>
+	</div><%-end-%>
+<% end %>
+<%= link_to image_tag('add.png'), new_recipe_path, :class =>'add' if user_signed_in?%>

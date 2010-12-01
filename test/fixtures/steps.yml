@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  desc: MyText
+  recipe: 
+
+two:
+  desc: MyText
+  recipe: 

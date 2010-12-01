@@ -1,0 +1,12 @@
+<p>
+    <div>
+      <%= f.label :desc, 'Step:' %>
+      <%= f.text_field :desc %>
+    </div>
+
+    <% unless f.object.new_record? %>
+      <div>
+        <%= link_to_remove_fields "Remove step", f %>
+      </div>
+    <% end %>
+  </p>

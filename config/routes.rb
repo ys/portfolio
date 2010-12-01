@@ -1,4 +1,6 @@
 Eatcpcks::Application.routes.draw do
+  resources :recipes
+
   devise_for :users
 
   resources :photos do
