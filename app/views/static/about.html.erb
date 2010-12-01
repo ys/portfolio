@@ -3,11 +3,23 @@
 <p class="later">It's in the oven!</p>
 <div class="grid_5 links">
 	<ul>
+		<% category=''%>
 		<% @links.each do |link| %>
-			<li><%=link_to link.name, link.url, :target => 'blank'%></li>
+			<%if (category != link.category)%>
+			<%if (category != '')%>
+			</ul>
+			<%end%>
+			<%category = link.category%>
 			
+			
+			<li><%=category%></li><ul><li><%=link_to link.name, link.url, :target => 'blank'%></li>
+			<%else%>
+			
+			<li><%=link_to link.name, link.url, :target => 'blank'%></li>
+			<%end%>
 		<%end%>
 		<%-if user_signed_in?-%>
+		</ul>
 		<li><%= link_to 'add Link', new_link_path %></li>
 		<%-end-%>
 	</ul>

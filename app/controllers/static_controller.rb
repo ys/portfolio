@@ -35,7 +35,7 @@ class StaticController < ApplicationController
       @lastPhotos = Photo.find(:all, :order=>'id DESC', :limit => 5)
     end
     if @page == 'about'
-      @links = Link.find(:all, :order=>'name ASC')
+      @links = Link.find(:all, :order=>'category ASC, name ASC')
     end
     render @page
   end
