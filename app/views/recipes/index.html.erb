@@ -1,5 +1,8 @@
 <h1>Recipes</h1>
 	<% i=0%>
+	<%- if recipe.empty?%>
+	<p class="later">It's in the oven!</p>
+	<%-end%>
 <% @recipes.each do |recipe| %>
 <%- if !recipe.photos.empty?  || user_signed_in? -%>
 	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
