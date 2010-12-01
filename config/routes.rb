@@ -1,4 +1,6 @@
 Eatcpcks::Application.routes.draw do
+  resources :links
+
   resources :recipes
 
   devise_for :users

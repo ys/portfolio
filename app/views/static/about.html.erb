@@ -1,3 +1,14 @@
 <h1>Greeting</h1>
 
 <p class="later">It's in the oven!</p>
+<div class="grid_5 links">
+	<ul>
+		<% @links.each do |link| %>
+			<li><%=link_to link.name, link.url, :target => 'blank'%></li>
+			
+		<%end%>
+		<%-if user_signed_in?-%>
+		<li><%= link_to 'add Link', new_link_path %></li>
+		<%-end-%>
+	</ul>
+</div>

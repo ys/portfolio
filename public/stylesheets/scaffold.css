@@ -111,9 +111,13 @@ div.field, div.actions {
 #leftMenu li a{
 	color:#EDECD8;
 }
-#leftMenu li.currentPage a{
+#leftMenu li:hover {
 	
-	text-decoration:underline;
+	border-bottom:3px solid rgba(237,236,216,0.6);
+}
+#leftMenu li.currentPage {
+	
+	border-bottom:3px solid #EDECD8;
 }
 #content{
 	position:relative;
@@ -263,7 +267,7 @@ h1{
 .blog img{
 	width:100%;
 }
-.blog a{
+.blog a, .links a{
 	color:#EDECD8;
 }
 #menu{
@@ -453,6 +457,18 @@ width: 0px;
 	-moz-box-shadow: 0px 0px 8px #222;
 	box-shadow: 0px 0px 8px #222;
 	background-color:rgba(2,174,192,0.6);
+	position:relative;
+	height:100%;
+	border:8px solid #EDECD8;
+	margin-bottom:10px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+}
+.links{
+	-webkit-box-shadow: 0px 0px 8px #222;
+	-moz-box-shadow: 0px 0px 8px #222;
+	box-shadow: 0px 0px 8px #222;
+	background-color:#222222;
 	position:relative;
 	height:100%;
 	border:8px solid #EDECD8;
