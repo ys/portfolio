@@ -35,4 +35,5 @@ gem 'bookis-paperclip', :require => 'paperclip'
 gem 'restfulie'
 gem 'mime-types', :require => 'mime/types'
 gem 'jquery-rails'
+gem "will_paginate", "~> 3.0.pre2"
 # end

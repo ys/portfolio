@@ -1,5 +1,8 @@
 class Photo < ActiveRecord::Base
   
+  cattr_reader :per_page
+  @@per_page = 36
+  
   attr_accessor :tagslist
   belongs_to :camera
   belongs_to :film

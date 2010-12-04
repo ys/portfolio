@@ -341,7 +341,7 @@ h1{
 	background-position:0 -22px;
 }
 
-.nivo-directionNav a , .previous, .next {
+.nivo-directionNav a , .previous, .next, .previous_page, .next_page {
 	display:block;
 	width:30px;
 	height:30px;
@@ -351,14 +351,32 @@ h1{
 }
 
 
-a.nivo-nextNav, .next {
+a.nivo-nextNav, .next, .next_page {
 	background-position:-30px 0;
 	right:15px;
 }
-a.nivo-prevNav, .previous {
+a.nivo-prevNav, .previous, .previous_page {
 	left:15px;
 }
+.previous_page{
+	position:absolute;
+	left:-40px;
+	top:48%;
+}
+.pagination{
+	text-align:center;
+	font-size:15px;
+}
 
+.next_page{
+	position:absolute;
+	right:-40px;
+	top:48%;
+}
+
+.disabled{
+	display:none;
+}
 .nivo-slice{
 	height:200px;
 	overflow:hidden;

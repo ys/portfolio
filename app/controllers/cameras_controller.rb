@@ -4,8 +4,7 @@ class CamerasController < ApplicationController
   # GET /cameras.xml
   def index
 
-    @cameras = Camera.all
-
+@cameras = Camera.paginate(:page => params[:page], :order => 'id DESC')
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @cameras }

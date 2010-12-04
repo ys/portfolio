@@ -15,5 +15,7 @@
 
 	</div><%-end-%>
 <% end %>
+<%= will_paginate @cameras %>
+
 
 <%= link_to image_tag('add.png'), new_camera_path, :class =>'add' if user_signed_in?%>

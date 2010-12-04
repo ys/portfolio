@@ -6,7 +6,7 @@ class TagsController < ApplicationController
     if (params[:photo_id])
       @tags = Photo.find(params[:photo_id]).tags
     else
-      @tags = Tag.all
+      @tags = Tag.paginate(:page => params[:page], :order => 'id DESC')
     end
 
     respond_to do |format|

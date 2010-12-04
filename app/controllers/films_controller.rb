@@ -4,8 +4,7 @@ class FilmsController < ApplicationController
   # GET /films.xml
   def index
     
-    @films = Film.all
-
+@films = Film.paginate(:page => params[:page], :order => 'id DESC')
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @films }

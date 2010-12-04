@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
     if (params[:photo_id])
       @albums = Photo.find(params[:photo_id]).albums
     else
-      @albums = Album.all
+      @albums = Album.paginate(:page => params[:page], :order => 'id DESC')
     end
     respond_to do |format|
       format.html # index.html.erb

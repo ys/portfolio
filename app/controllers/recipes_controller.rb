@@ -3,8 +3,7 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.xml
   def index
-    @recipes = Recipe.all
-
+@recipes = Recipe.paginate(:page => params[:page], :order => 'id DESC')
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @recipes }
