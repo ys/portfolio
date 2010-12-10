@@ -539,6 +539,6 @@ input[type=text]:focus{
 	height:90px;
 	border:solid 5px rgba(237,236,216,1);
 }
-#album_photo_ids_{
+.formThumbs input{
 	display:none;
 }
