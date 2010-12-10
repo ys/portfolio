@@ -41,13 +41,13 @@
 	<%= link_to_add_fields 'Add step', f, :steps%>
 </div>
 
-<div>
+<div class="formThumbs">
 	<%= f.label :photos %><br />
-	<% for photo in Photo.find(:all) %>
+<% for photo in Photo.find(:all) %>
 
-	  <%= check_box_tag "recipe[photo_ids][]", photo.id, @recipe.photos.include?(photo) %>
-	  <%= image_tag(photo.image.url(:thumb), :border =>0, :class => 'thumb') %>
-	<% end %>
+  <%= check_box_tag "recipe[photo_ids][]", photo.id, @recipe.photos.include?(photo) %>
+  <%= image_tag(photo.image.url(:square), :border =>0, :class => 'thumb', :onclick=>"checkImage($(this));") %>
+<% end %>
 </div>
   <div class="actions">
     <%= f.submit %>
