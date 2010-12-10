@@ -39,8 +39,12 @@
 	<%= f.label :photos %><br />
 <% for photo in Photo.find(:all) %>
 
-  <%= check_box_tag "film[photo_ids][]", photo.id, @film.photos.include?(photo) %>
-  <%= image_tag(photo.image.url(:square), :border =>0, :class => 'thumb', :onclick=>"checkImage($(this));") %>
+  <%= check_box_tag "film[photo_ids][]", photo.id, @camera.photos.include?(photo) %>
+<%if @camera.photos.include?(photo)%>
+  <%= image_tag(photo.image.url(:square), :border =>0, :class => 'thumb selected', :onclick=>"checkImage($(this));") %>
+<%else%>
+<%= image_tag(photo.image.url(:square), :border =>0, :class => 'thumb', :onclick=>"checkImage($(this));") %>
+<%end%>
 <% end %>
 </div>
   <div class="actions">
