@@ -304,8 +304,8 @@ h1{
 	border-top:8px solid #EDECD8;
 }
 
-.add{position:absolute;bottom:-50px;right:-40px;}
-.add img{height:50px;}
+.add{position:absolute;top:-90px;right:-70px;}
+.add img{height:50px; opacity:0.6;}
 
 #footer{
 	padding-top:40px;
@@ -507,4 +507,38 @@ width: 0px;
 }
 .links>ul>li{
 	font-size:15px;
+}
+
+input[type=text]{
+	outline: none;
+	background-color:transparent;
+	border:none;
+	border-bottom:solid 2px rgba(237,236,216,0.6);
+	 }
+textarea{
+	outline:none;
+	background-color:rgba(237,236,216,0.3);
+	border:solid 2px rgba(237,236,216,0.6);
+}
+textarea:focus{
+	background-color:rgba(237,236,216,0.3);
+	border:solid 2px rgba(237,236,216,1);
+		
+}
+
+input[type=text]:focus{
+	background-color:transparent;
+	border:none;
+	border-bottom:solid 2px rgba(237,236,216,1);
+ }
+
+.formThumbs img{
+	height:100px;
+}
+ .formThumbs img.selected{
+	height:90px;
+	border:solid 5px rgba(237,236,216,1);
+}
+#album_photo_ids_{
+	display:none;
 }
