@@ -56,37 +56,39 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.xml
   def create
-    if (params[:photo])
-      params[:photo].image.each do |image|
-        photo = Photo.new
-        photo.set_mime_type(image)
-        photo.name = image.original_filename
-        photo.save
-      end
+    logger.debug "Post should be valid: #{request.headers["Content-Type"]}"
+      if (params[:photo])
+        params[:photo].image.each do |image|
+          photo = Photo.new
+          photo.set_mime_type(image)
+          photo.name = image.original_filename
+          photo.save
+        end
 
-      respond_to do |format|
+        respond_to do |format|
 
-        format.html { head :ok }
-        format.xml  { render :xml => @photo, :status => :created, :location => @photo }
-        format.json  { render :json => @photo, :status => :created, :location => @photo }
-
-      end
-    else
-      @photo = Photo.new
-      @photo.set_mime_type(params[:image])
-      @photo.name = params[:image].original_filename
-      respond_to do |format|
-        if @photo.save
           format.html { head :ok }
           format.xml  { render :xml => @photo, :status => :created, :location => @photo }
           format.json  { render :json => @photo, :status => :created, :location => @photo }
-        else
-          format.html { render :action => "new" }
-          format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
-          format.json  { render :json => @photo.errors, :status => :unprocessable_entity}
+
+        end
+      else
+        @photo = Photo.new
+        @photo.set_mime_type(params[:image])
+        @photo.name = params[:image].original_filename
+        respond_to do |format|
+          if @photo.save
+            format.html { head :ok }
+            format.xml  { render :xml => @photo, :status => :created, :location => @photo }
+            format.json  { render :json => @photo, :status => :created, :location => @photo }
+          else
+            format.html { render :action => "new" }
+            format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
+            format.json  { render :json => @photo.errors, :status => :unprocessable_entity}
+          end
         end
       end
-    end
+   
   end
 
   # PUT /photos/1

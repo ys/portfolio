@@ -7,7 +7,7 @@
 		<%= link_to image_tag(photo.image.url(:square), :border =>0),:controller =>'photos', :action => 'show', :id => photo %>
 		<%- if user_signed_in? -%>
 		<div class="triangle right"></div>
-		<span class="rightAlign"><%= link_to 'Edit', edit_photo_path(photo) %> | <%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></span>
+		<span class="rightAlign"><%= link_to 'Edit', edit_photo_path(photo) %> | <%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete, :remote=>true %></span>
 		<%-end-%>
 		<%- i = i+1 -%>
 		<%- if i==6 -%>
