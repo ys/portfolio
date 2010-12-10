@@ -29,10 +29,10 @@ class Photo < ActiveRecord::Base
         self.image = data
       end
       def previous
-        self.class.first(:conditions => ["id > ?", id], :order => "id desc")
+        self.class.first(:conditions => ["id < ?", id], :order => "id asc")
       end
 
       def next
-        self.class.first(:conditions => ["id < ?", id], :order => "id asc")
+        self.class.first(:conditions => ["id > ?", id], :order => "id desc")
       end
 end
