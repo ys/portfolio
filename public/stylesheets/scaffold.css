@@ -10,6 +10,13 @@
 }
 
 @font-face {
+  font-family: 'iconic';
+  src: url('../fonts/iconic_stroke.otf') format('opentype');
+}
+
+
+
+@font-face {
 	font-family: 'ClumsyRegular';
 	src: url('clumsy-webfont.eot');
 	src: local('☺'), url('../fonts/clumsy-webfont.woff') format('woff'), url('../fonts/clumsy-webfont.ttf') format('truetype'), url('clumsy-webfont.svg#webfontKGJ2JUnY') format('svg');
@@ -185,8 +192,9 @@ div.field, div.actions {
 	-khtml-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
 	background-color:#EDECD8;
-	padding:3px 10px 3px 3px;
+	padding:6px 10px 0px 10px;
 	color:#222222;
+	
 	border-radius:0 10px 10px 0;
 	-moz-border-radius:0 10px 10px 0;
 	position:absolute;
@@ -205,6 +213,7 @@ div.field, div.actions {
 	padding-right:5px;
 	text-overflow: ellipsis;
 }
+
 .triangle{
 	border-color: transparent #333333 transparent transparent;
 	border-style:solid;
@@ -553,4 +562,8 @@ textarea:focus{
 }
 .about{
 	color:#222;
+}
+.icon{
+	font-family:iconic;
+	font-size:20px;
 }

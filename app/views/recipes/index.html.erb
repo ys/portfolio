@@ -10,7 +10,7 @@
 		<%= link_to image_tag(randomMediumPicture(recipe), :border =>0),:controller =>'recipes', :action => 'show', :id => recipe %>
 		<%- if user_signed_in? -%>
 		<div class="triangle right"></div>
-		<span class="rightAlign"><%= link_to 'Edit', edit_recipe_path(recipe) %> | <%= link_to 'Destroy', recipe, :confirm => 'Are you sure?', :method => :delete %></span>
+		<span class="rightAlign"><%= link_to 'p', edit_recipe_path(recipe), :class=>"icon" %> <%= link_to 't', recipe, :confirm => 'Delete this?', :method => :delete, :class=>"icon" %></span>
 		
 		<%- end -%>
 		<%-i = i+1 -%>

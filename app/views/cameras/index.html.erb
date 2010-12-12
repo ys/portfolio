@@ -7,7 +7,7 @@
 		<%= link_to image_tag(randomMediumPicture(camera), :border =>0),:controller =>'cameras', :action => 'show', :id => camera.nickname %>
 		<%- if user_signed_in? -%>
 		<div class="triangle right"></div>
-		<span class="rightAlign"><%= link_to 'Edit', edit_camera_path(camera) %> | <%= link_to 'Destroy', camera, :confirm => 'Are you sure?', :method => :delete %></span>
+		<span class="rightAlign"><%= link_to 'p', edit_camera_path(camera), :class=>"icon" %> <%= link_to 't', camera, :confirm => 'Delete this?', :method => :delete, :class=>"icon" %></span>
 		<%-end-%>
 		<%-i = i+1 -%>
 		<%- if i==6 -%>

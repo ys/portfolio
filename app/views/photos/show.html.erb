@@ -60,7 +60,14 @@
 <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%=request.url%>" layout="button_count" show_faces="false" width="450"></fb:like>
 </p>
 
-
+<p>
+  <b>Published:</b>
+  <%-if @photo.isPublished?%>
+  	&#10003;
+  <%-else-%>
+	&#10008;
+  <%-end-%>
+</p>
 </span>
 <%= link_to image_tag('bak.png'), photos_path, :class =>'add'%>
 

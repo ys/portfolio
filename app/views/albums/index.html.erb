@@ -7,7 +7,7 @@
 		<%= link_to image_tag(randomMediumPicture(album), :border =>0),:controller =>'albums', :action => 'show', :id => album %>
 		<%- if user_signed_in? -%>
 		<div class="triangle right"></div>
-		<span class="rightAlign"><%= link_to 'Edit', edit_album_path(album)%> | <%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></span>
+		<span class="rightAlign"><%= link_to 'p', edit_album_path(album), :class=>"icon"%> <%= link_to 't', album, :confirm => 'Delete this?', :method => :delete , :class=>"icon"%></span>
 		<%-end-%>
 	</div>
 	<%-i = i+1 -%>

@@ -6,7 +6,7 @@
 		<%= link_to image_tag(randomMediumPicture(film), :border =>0),:controller =>'films', :action => 'show', :id => film %>
 		<%- if user_signed_in? -%>
 		<div class="triangle right"></div>
-		<span class="rightAlign"><%= link_to 'Edit', edit_film_path(film) %> | <%= link_to 'Destroy', film, :confirm => 'Are you sure?', :method => :delete %></span>
+		<span class="rightAlign"><%= link_to 'p', edit_film_path(film), :class=>"icon" %> <%= link_to 't', film, :confirm => 'Delete this?', :method => :delete, :class=>"icon" %></span>
 		
 		<%- end -%>
 		<%-i = i+1 -%>
