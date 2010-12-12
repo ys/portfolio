@@ -10,5 +10,14 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+    def is_user?    
+      if user_signed_in?     
+        unless current_user.email == 'yannick.schutz@gmail.com'        
+          false
+        end
+        true
+      end
+      false
+    end
   
 end

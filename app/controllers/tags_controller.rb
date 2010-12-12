@@ -8,7 +8,9 @@ class TagsController < ApplicationController
     else
       @tags = Tag.paginate(:page => params[:page], :order => 'id DESC')
     end
-
+    if (!is_user?)
+      @tags.delete_if {|x| x.photos.empty? }
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tags }

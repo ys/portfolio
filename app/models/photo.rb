@@ -23,7 +23,13 @@ class Photo < ActiveRecord::Base
       validates_attachment_content_type :image, :content_type => [ 'image/jpeg' ],
                     :message => 'file must be of filetype .jpeg'
 
-
+      def isPublished?
+        if (self.published == nil || self.published == false)
+          false
+        else
+          true
+        end
+      end
       def set_mime_type(data)
         data.content_type = MIME::Types.type_for(data.original_filename)[0].to_s
         self.image = data

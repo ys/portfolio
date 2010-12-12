@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
   before_filter :is_user!, :except => [:show, :index]
   require "kconv"
-
+  
   # GET /photos
   # GET /photos.xml
   def index
@@ -14,6 +14,9 @@ class PhotosController < ApplicationController
     else
       @photos = Photo.paginate(:page => params[:page], :order => 'id DESC')
     end
+    if (!is_user?)
+      @photos.delete_if {|x| !x.isPublished? }
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @photos }
@@ -25,7 +28,9 @@ class PhotosController < ApplicationController
   # GET /photos/1.xml
   def show
     @photo = Photo.find(params[:id])
-
+    if (!is_user? && !@photo.isPublished?)
+        raise ActiveRecord::RecordNotFound 
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @photo }

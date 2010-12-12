@@ -1,10 +1,13 @@
 class CamerasController < ApplicationController
-  before_filter :is_user!, :except => [:show, :index] 
+  before_filter :is_user!, :except => [:show, :index]
   # GET /cameras
   # GET /cameras.xml
   def index
 
-@cameras = Camera.paginate(:page => params[:page], :order => 'id DESC')
+    @cameras = Camera.paginate(:page => params[:page], :order => 'id DESC')
+    if (!is_user?)
+      @cameras.delete_if {|x| x.photos.empty? }
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @cameras }
@@ -18,7 +21,7 @@ class CamerasController < ApplicationController
       @camera = Camera.find(params[:id])
     rescue
       nickname = params[:id]
-      @camera = Camera.find_by_nickname(nickname)      
+      @camera = Camera.find_by_nickname(nickname)
     end
     respond_to do |format|
       format.html # show.html.erb

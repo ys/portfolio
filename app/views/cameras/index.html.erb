@@ -1,7 +1,7 @@
 <h1>Cameras</h1>
 
 	<% i=0%>
-<% @cameras.each do |camera| %><%- if !camera.photos.empty? || user_signed_in? -%>
+<% @cameras.each do |camera| %>
 	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
 		<span class="leftAlign"><%= camera.fullName %></span>
 		<%= link_to image_tag(randomMediumPicture(camera), :border =>0),:controller =>'cameras', :action => 'show', :id => camera.nickname %>
@@ -14,7 +14,6 @@
 		<%-i=0 end-%>
 
 	</div><%-end-%>
-<% end %>
 <%= will_paginate @cameras %>
 
 

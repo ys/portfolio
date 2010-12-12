@@ -5,6 +5,9 @@ class FilmsController < ApplicationController
   def index
     
 @films = Film.paginate(:page => params[:page], :order => 'id DESC')
+  if (!is_user?)
+    @films.delete_if {|x| x.photos.empty? }
+  end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @films }
