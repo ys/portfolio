@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
       if user_signed_in?     
         if current_user.email == 'yannick.schutz@gmail.com'        
           true
-        end
         
       end
+    else 
       false
     end
   
