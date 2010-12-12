@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101201154050) do
+ActiveRecord::Schema.define(:version => 20101212100611) do
 
   create_table "albums", :force => true do |t|
     t.string    "name"
@@ -33,6 +33,20 @@ ActiveRecord::Schema.define(:version => 20101201154050) do
     t.timestamp "updated_at"
   end
 
+  create_table "comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "films", :force => true do |t|
     t.string    "type"
     t.string    "format"
@@ -45,21 +59,21 @@ ActiveRecord::Schema.define(:version => 20101201154050) do
   end
 
   create_table "ingredients", :force => true do |t|
-    t.string   "name"
-    t.string   "quantity"
-    t.text     "desc"
-    t.integer  "recipe_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.string    "quantity"
+    t.text      "desc"
+    t.integer   "recipe_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "links", :force => true do |t|
-    t.string   "url"
-    t.string   "name"
-    t.text     "desc"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "category"
+    t.string    "url"
+    t.string    "name"
+    t.text      "desc"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "category"
   end
 
   create_table "photos", :force => true do |t|
@@ -89,19 +103,19 @@ ActiveRecord::Schema.define(:version => 20101201154050) do
   end
 
   create_table "recipes", :force => true do |t|
-    t.string   "name"
-    t.integer  "difficulty"
-    t.integer  "preparation"
-    t.integer  "cookingTime"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.integer   "difficulty"
+    t.integer   "preparation"
+    t.integer   "cookingTime"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "steps", :force => true do |t|
-    t.text     "desc"
-    t.integer  "recipe_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text      "desc"
+    t.integer   "recipe_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "tags", :force => true do |t|

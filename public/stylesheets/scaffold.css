@@ -542,3 +542,9 @@ input[type=text]:focus{
 .formThumbs input{
 	display:none;
 }
+.thisis{
+	font-size:15px;
+	position:absolute;
+	bottom:-40px;
+	right:0;
+}

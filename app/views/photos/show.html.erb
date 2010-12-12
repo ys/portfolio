@@ -20,15 +20,19 @@
   <b>Name:</b>
   <%= @photo.name %>
 </p>
-
+<%-if (@photo.description!=nil && @photo.description!='')-%>
 <p>
   <b>Description:</b>
   <%= @photo.description %>
 </p>
-
+<%-end-%>
 <p>
   <b>Xpro:</b>
-  <%= @photo.xpro %>
+  <%-if @photo.xpro == true%>
+  	&#10003;
+  <%-else-%>
+	&#10008;
+  <%-end-%>
 </p>
 <%- if !@photo.camera!=nil%>
 <p>

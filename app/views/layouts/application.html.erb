@@ -53,9 +53,14 @@ $('#menu li').hover(function() {
 <%-end-%>
 </div><div id="content" class=" grid_24 alpha omega">
 <%= yield   %>
+<%- if(request.path.starts_with?(photos_path)) -%><p class=" thisis"> * This is not a photo!</p><%-end-%>
+<%- if(request.path.starts_with?(albums_path)) -%><p class="thisis"> * This is not an album!</p><%-end-%>
+<%- if(request.path.starts_with?(cameras_path)) -%><p class="thisis "> * This is not a camera!</p><%-end-%>
+<%- if(request.path.starts_with?(films_path)) -%><p class="thisis"> * This is not a film!</p><%-end-%>
 </div>
+
 <div id="footer" class="grid_22 push_1">
-	This is not a website, this is a pictures oven!
+	This is not a portfolio, this is a pictures oven!
 </div>
 </div>
 <p id="bubble"><%= mail_to "yannick@eatcupcak.es", "Email me", :encode => "javascript"%>  | <a class="close" href="#">close</a></p>
