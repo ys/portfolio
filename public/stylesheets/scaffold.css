@@ -304,8 +304,8 @@ h1{
 	border-top:8px solid #EDECD8;
 }
 
-.add{position:absolute;top:-90px;right:-70px;}
-.add img{height:50px; opacity:0.6;}
+.add{position:absolute;top:-78px;right:0px;}
+.add img{height:30px; opacity:0.6;}
 
 #footer{
 	padding-top:40px;
@@ -543,8 +543,13 @@ input[type=text]:focus{
 	display:none;
 }
 .thisis{
+	color:#222;
+	opacity:0.6;
 	font-size:15px;
 	position:absolute;
 	bottom:-40px;
 	right:0;
+}
+.about{
+	color:#222;
 }
