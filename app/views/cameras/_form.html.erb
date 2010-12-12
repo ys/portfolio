@@ -29,7 +29,7 @@
   </div>
 <div class="formThumbs">
 	<%= f.label :photos %><br />
-<% for photo in Photo.find(:all) %>
+<% for photo in @photos %>
 
   <%= check_box_tag "camera[photo_ids][]", photo.id, @camera.photos.include?(photo) %>
 <%if @camera.photos.include?(photo)%>

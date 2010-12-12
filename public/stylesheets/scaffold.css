@@ -509,12 +509,17 @@ width: 0px;
 	font-size:15px;
 }
 
-input[type=text]{
+input[type=text], input[type=password]{
 	outline: none;
 	background-color:transparent;
 	border:none;
 	border-bottom:solid 2px rgba(237,236,216,0.6);
 	 }
+input[type=text]:focus, input[type=password]:focus;{
+	background-color:transparent;
+	border:none;
+	border-bottom:solid 2px rgba(237,236,216,1);
+}
 textarea{
 	outline:none;
 	background-color:rgba(237,236,216,0.3);
@@ -526,11 +531,7 @@ textarea:focus{
 		
 }
 
-input[type=text]:focus{
-	background-color:transparent;
-	border:none;
-	border-bottom:solid 2px rgba(237,236,216,1);
- }
+
 
 .formThumbs img{
 	height:100px;

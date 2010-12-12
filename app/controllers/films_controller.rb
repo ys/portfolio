@@ -29,7 +29,7 @@ class FilmsController < ApplicationController
   # GET /films/new.xml
   def new
     @film = Film.new
-
+    @photos = Photo.find(:all)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @film }
@@ -39,6 +39,7 @@ class FilmsController < ApplicationController
   # GET /films/1/edit
   def edit
     @film = Film.find(params[:id])
+    @photos = Photo.find(:all)
   end
 
   # POST /films

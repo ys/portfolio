@@ -29,8 +29,7 @@ class AlbumsController < ApplicationController
   # GET /albums/new.xml
   def new
     @album = Album.new
-    @cameras = Camera.all
-    @films = Film.all
+    @photos = Photo.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @album }
@@ -40,8 +39,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1/edit
   def edit
     @album = Album.find(params[:id])
-    @cameras = Camera.all
-    @films = Film.all
+    @photos = Photo.all
   end
 
   # POST /albums

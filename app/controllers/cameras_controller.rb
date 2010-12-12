@@ -34,7 +34,7 @@ class CamerasController < ApplicationController
   # GET /cameras/new.xml
   def new
     @camera = Camera.new
-
+    @photos = Photo.find(:all)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @camera }
@@ -44,6 +44,7 @@ class CamerasController < ApplicationController
   # GET /cameras/1/edit
   def edit
     @camera = Camera.find(params[:id])
+    @photos = Photo.find(:all)
   end
 
   # POST /cameras
@@ -66,7 +67,7 @@ class CamerasController < ApplicationController
   # PUT /cameras/1.xml
   def update
     @camera = Camera.find(params[:id])
-
+    
     respond_to do |format|
       if @camera.update_attributes(params[:camera])
         format.html { redirect_to(@camera, :notice => 'Camera was successfully updated.') }
