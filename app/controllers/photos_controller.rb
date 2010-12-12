@@ -67,6 +67,7 @@ class PhotosController < ApplicationController
           photo = Photo.new
           photo.set_mime_type(image)
           photo.name = image.original_filename
+          photo.published = false
           photo.save
         end
 
@@ -81,6 +82,7 @@ class PhotosController < ApplicationController
         @photo = Photo.new
         @photo.set_mime_type(params[:image])
         @photo.name = params[:image].original_filename
+        @photo.published = false
         respond_to do |format|
           if @photo.save
             format.html { head :ok }
