@@ -9,7 +9,6 @@ atom_feed do |feed|
       entry.title(photo.name)
       entry.content(image_tag(photo.image.url(:square)), :type => 'html')
       entry.summary(photo.description)
-      entry.updated(photo.updated_at) # needed to work with Google Reader.
       entry.author do |author|
         author.name('Yannick')
       end
