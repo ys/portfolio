@@ -143,9 +143,7 @@ div.field, div.actions {
 	-moz-border-radius:5px;
 
 }
-.desc{
-	overflow-y:auto;
-}
+
 .category{
 	-webkit-box-shadow: 0px 0px 8px #888;
 	-moz-box-shadow: 0px 0px 8px #888;
@@ -157,6 +155,10 @@ div.field, div.actions {
 	margin-bottom:10px;
 	border-radius:5px;
 	-moz-border-radius:5px;
+}
+.desc{
+	overflow-y:auto;
+
 }
 .category a{
 	width:100%;
@@ -187,7 +189,7 @@ div.field, div.actions {
 	padding:0 10px 5px 10px;
 	
 }
-.category span.rightAlign, .photo span.rightAlign{
+.category span.rightAlign, .photo span.rightAlign , .steps span.rightAlign{
 	-moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
 	-khtml-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
@@ -239,7 +241,7 @@ div.field, div.actions {
 	left:-5px;
 	bottom:10px;
 }
-.category .rightAlign{
+.category .rightAlign, .steps .rightAlign{
 	left:-14px;
 	top:10px;
 }
@@ -487,7 +489,7 @@ width: 0px;
 	-webkit-box-shadow: 0px 0px 8px #888;
 	-moz-box-shadow: 0px 0px 8px #888;
 	box-shadow: 0px 0px 8px #888;
-	background-color:rgba(2,174,192,0.6);
+	background-color:#888;
 	position:relative;
 	height:100%;
 	border:8px solid #EDECD8;

@@ -5,6 +5,12 @@
 <%i=0%>
 
 <div class="steps  grid_4 alpha">
+	
+	<%- if user_signed_in?  -%>
+	<div class="triangle right"></div>
+	<span class="rightAlign"><%= link_to 'p', edit_recipe_path(@recipe), :class=>"icon"%> <%= link_to 't', @recipe, :confirm => 'Delete this?', :method => :delete , :class=>"icon"%></span>
+	<%edit = true%>
+	<%-end-%>
 <p>
 	  <b>Name:</b>
 	  <%= @recipe.name %><br/>
