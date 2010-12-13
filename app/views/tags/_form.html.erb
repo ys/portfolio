@@ -24,7 +24,7 @@
 	<%= f.label :photos %><br />
 <% for photo in @photos %>
 
-  <%= check_box_tag "album[photo_ids][]", photo.id, @album.photos.include?(photo) %>
+  <%= check_box_tag "tag[photo_ids][]", photo.id, @tag.photos.include?(photo) %>
 <%if @album.photos.include?(photo)%>
   <%= image_tag(photo.image.url(:square), :border =>0, :class => 'thumb selected', :onclick=>"checkImage($(this));") %>
 <%else%>
