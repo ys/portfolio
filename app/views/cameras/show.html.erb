@@ -12,15 +12,19 @@
 </p>
 </div>
 	<%-i=1-%>
+	<%edit = false%>
 	<% @camera.photos.each do |photo| %>
 	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
+		<%- if user_signed_in? && !edit -%>
+		<div class="triangle right"></div>
+		<span class="rightAlign"><%= link_to 'p', edit_camera_path(@camera), :class=>"icon"%> <%= link_to 't', @camera, :confirm => 'Delete this?', :method => :delete , :class=>"icon"%></span>
+		<%edit = true%>
+		<%-end-%>
 	  <%= link_to image_tag(photo.image.url(:square), :border =>0, :class => 'thumb'),:controller =>'photos', :action => 'show', :id => photo %>
 	</div>
 	<%-i = i+1 -%>
 	<%- if i==6 -%>
 	<%-i=0 end-%>
 	<% end %>
-<%-if user_signed_in?-%>
-<%= link_to 'Edit', edit_camera_path(@camera) %> |
-<%-end-%>
+
 <%= link_to image_tag('bak.png'), cameras_path, :class =>'add'%>

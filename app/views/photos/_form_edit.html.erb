@@ -1,3 +1,4 @@
+<div class="fav"><%= image_tag "logo.png" %></div>
 <%= form_for @photo, :html => { :multipart => true } do |f| %>
   <% if @photo.errors.any? %>
     <div id="error_explanation">
@@ -41,7 +42,7 @@
 
   <%= check_box_tag "photo[tag_ids][]", tag.id, @photo.tags.include?(tag) %>
   <%= tag.name %>
-<% end %>
+<% end %><br/>
 <%= f.label :tagslist%><br />
 <%= f.text_field :tagslist%>
 <div>

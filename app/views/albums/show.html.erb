@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="category desc grid_4 alpha">
+	
 	<p>
   <b>Name:</b>
   <%= @album.name %>
@@ -9,8 +10,14 @@
 </p>
 </div>
 	<% i=1%>
+	<% edit = false%>
 	<% @album.photos.each do |photo| %>
 	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
+		<%- if user_signed_in? && !edit -%>
+		<div class="triangle right"></div>
+		<span class="rightAlign"><%= link_to 'p', edit_album_path(@album), :class=>"icon"%> <%= link_to 't', @album, :confirm => 'Delete this?', :method => :delete , :class=>"icon"%></span>
+		<%edit = true%>
+		<%-end-%>
 	  <%= link_to image_tag(photo.image.url(:square), :border =>0, :class => 'thumb'),:controller =>'photos', :action => 'show', :id => photo %>
 	</div>
 	<%-i = i+1 -%>
@@ -19,7 +26,5 @@
 	<% end %>
 
 
-<%- if user_signed_in?-%>
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%- end-%>
+
 <%= link_to image_tag('bak.png'), albums_path, :class =>'add'%>

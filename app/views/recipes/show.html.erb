@@ -46,7 +46,5 @@
 	<%-i=0 end-%>
 	<% end %>
 	</div>
-<%-if user_signed_in?-%>
-	<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%-end-%>
+
 <%= link_to image_tag('bak.png'), recipes_path, :class =>'add'%>

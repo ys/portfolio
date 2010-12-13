@@ -8,8 +8,14 @@
 </p>
 </div>
 	<%-i=1-%>
+	<%edit = false%>
 	<% @tag.photos.each do |photo| %>
 	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
+		<%- if user_signed_in? && !edit -%>
+		<div class="triangle right"></div>
+		<span class="rightAlign"><%= link_to 'p', edit_tag_path(@tag), :class=>"icon"%> <%= link_to 't', @tag, :confirm => 'Delete this?', :method => :delete , :class=>"icon"%></span>
+		<%edit = true%>
+		<%-end-%>
 	  <%= link_to image_tag(photo.image.url(:square), :border =>0, :class => 'thumb'),:controller =>'photos', :action => 'show', :id => photo %>
 	</div>
 	<%-i = i+1 -%>
@@ -17,8 +23,4 @@
 	<%-i=0 end-%>
 	<% end %>
 
-
-<%-if user_signed_in?-%>
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%-end-%>
-<%= link_to 'Back', tags_path %>
+<%= link_to image_tag('bak.png'), tags_path, :class =>'add'%>
