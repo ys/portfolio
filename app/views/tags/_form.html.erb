@@ -20,6 +20,18 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+<div class="formThumbs">
+	<%= f.label :photos %><br />
+<% for photo in @photos %>
+
+  <%= check_box_tag "album[photo_ids][]", photo.id, @album.photos.include?(photo) %>
+<%if @album.photos.include?(photo)%>
+  <%= image_tag(photo.image.url(:square), :border =>0, :class => 'thumb selected', :onclick=>"checkImage($(this));") %>
+<%else%>
+<%= image_tag(photo.image.url(:square), :border =>0, :class => 'thumb', :onclick=>"checkImage($(this));") %>
+<%end%>
+<% end %>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>
