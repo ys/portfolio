@@ -7,10 +7,12 @@ atom_feed do |feed|
     next if photo.updated_at.blank?
     feed.entry(photo) do |entry|
       entry.title(photo.name)
-      entry.content(image_tag(photo.image.url(:square))+'<br/>'+photo.description, :type => 'html')
-      entry.summary(truncate(strip_tags(photo.description), :length => 100))
+      entry.content(image_tag(photo.image.url(:square)), :type => 'html')
+      entry.summary(photo.description)
       entry.updated(photo.updated_at) # needed to work with Google Reader.
-      entry.author('Yannick')
+      entry.author do |author|
+        author.name('Yannick')
+      end
     end
   end
 end
