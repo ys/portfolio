@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :is_user!, :except => [:show, :index]
+  before_filter :is_user!, :except => [:feed,:show, :index]
   require "kconv"
   
   # GET /photos
