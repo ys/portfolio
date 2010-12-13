@@ -23,7 +23,14 @@ class PhotosController < ApplicationController
       format.json  { render :json => @photos }
     end
   end
-
+  
+  
+  def feed
+    @photos = Photo.all
+    respond_to do |format|
+      format.atom
+    end
+  end
   # GET /photos/1
   # GET /photos/1.xml
   def show
