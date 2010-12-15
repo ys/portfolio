@@ -120,12 +120,25 @@ div.field, div.actions {
 }
 #leftMenu li:hover {
 	
-	border-bottom:3px solid rgba(237,236,216,0.6);
+	//border-bottom:3px solid rgba(237,236,216,0.6);
 }
 #leftMenu li.currentPage {
 	
-	border-bottom:3px solid #EDECD8;
+	//border-bottom:3px solid #EDECD8;
 }
+
+
+
+#leftMenu li.currentPage::before {
+	content: '•';
+}
+#leftMenu li.currentPage::after {
+	content: '•';
+}
+
+
+
+
 #leftMenu li {
 	
 	border-bottom:3px solid transparent;
