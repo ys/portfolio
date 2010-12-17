@@ -25,11 +25,9 @@ $('#menu li').hover(function() {
 <div id="head" class="grid_24">
 	
 <ul id="menu">
-<li <%- if(request.path.starts_with?(photos_path) ||
-	  	request.path.starts_with?(albums_path) ||
-		request.path.starts_with?(cameras_path)||
-		request.path.starts_with?(films_path)  || 
-		request.path.starts_with?(tags_path)||  request.path=='/') -%>class="currentPage"<%-end-%>><%= link_to 'Portfolio', photos_path%></li>
+<li <%- if(request.path.starts_with?(photos_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Portfolio', photos_path%></li>
+		<li <%- if(
+				request.path.starts_with?(albums_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Albums', albums_path%></li>
 <li <%- if(request.path.starts_with?('/inspiration')) -%>class="currentPage"<%-end-%>><%= link_to 'Inspiration', 'http://dont.eatcupcak.es', :target => "blank"%></li>
 <li <%- if(request.path.starts_with?(recipes_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Recipes', recipes_path%></li>
 
@@ -40,11 +38,11 @@ $('#menu li').hover(function() {
 <span id="title"><%= link_to image_tag("http://commondatastorage.googleapis.com/eatcpcks/images/logo1.png", :mouseover =>"http://commondatastorage.googleapis.com/eatcpcks/images/logo2.png"), '/'%></span>
 </div>
 <div id="leftColumn" class="grid_11 push_13">
-<%- if( request.path.starts_with?(photos_path) ||
+<%- if(user_signed_in?&&( request.path.starts_with?(photos_path) ||
 	  	request.path.starts_with?(albums_path) ||
 		request.path.starts_with?(cameras_path)||
 		request.path.starts_with?(films_path)  || 
-		request.path.starts_with?(tags_path)	||  request.path=='/') -%>
+		request.path.starts_with?(tags_path)	||  request.path=='/')) -%>
 <ul id="leftMenu">
 <li <%- if(request.path.starts_with?(photos_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Photos', photos_path%></li>
 <li <%- if(request.path.starts_with?(albums_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Albums', albums_path%></li>
