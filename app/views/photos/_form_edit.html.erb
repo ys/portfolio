@@ -41,7 +41,7 @@
 <% for tag in Tag.find(:all) %>
 
   <%= check_box_tag "photo[tag_ids][]", tag.id, @photo.tags.include?(tag) %>
-  <%= tag.name %>
+  <%= tag.name %><br/>
 <% end %><br/>
 <%= f.label :tagslist%><br />
 <%= f.text_field :tagslist%>
@@ -50,7 +50,7 @@
 <% for album in Album.find(:all) %>
 
   <%= check_box_tag "photo[album_ids][]", album.id, @photo.albums.include?(album) %>
-  <%= album.name %>
+  <%= album.name %><br/>
 <% end %>
 </div>
 

@@ -219,7 +219,6 @@ div.field, div.actions {
 .category span.leftAlign{
 
 	background-color:#EDECD8;
-	padding:3px 10px 3px 3px;
 	color:#888;
 	height:15px;
 	width:100%;
@@ -231,6 +230,7 @@ div.field, div.actions {
 	padding-top:8px;
 	text-overflow: ellipsis;
 }
+
 
 .triangle{
 	border-color: transparent #333333 transparent transparent;
