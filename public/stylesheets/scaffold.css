@@ -30,13 +30,14 @@ html,body {
 	padding:0;
 	height:100%;
 	/**background: url(http://commondatastorage.googleapis.com/eatcpcks/images/back1.jpg) repeat;**/
-	background: url(../images/bg-all-grid-24x24.png) repeat;
+	background: url(http://commondatastorage.googleapis.com/eatcpcks/images/bg-all-grid-24x24.png) repeat;
 }
 
 body, p, ol, ul, td {
-  font-family: 'Myriad Pro', verdana , arial, helvetica, sans-serif;
+  font-family: 'Lato', verdana , arial, helvetica, sans-serif;
   font-size:   13px;
   line-height: 18px;
+  font-weight:300;
 }
 
 img{
@@ -265,6 +266,10 @@ div.field, div.actions {
 	top:20px;
 }
 
+.label{
+	font-weight:400;
+}
+
 h1{
 	display:none;
 }
@@ -306,6 +311,7 @@ h1{
 	top:0;
 	right:0;
 	margin:0;
+
 	
 }
 
@@ -328,7 +334,10 @@ h1{
 }
 #menu li.currentPage{
 	border-top:8px solid #EDECD8;
+	font-weight:400;
 }
+
+
 
 .add{position:absolute;top:-78px;right:0px;}
 .add img{height:30px; opacity:0.6;}

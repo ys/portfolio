@@ -16,17 +16,17 @@
 <span class="grid_8 omega photoDesc">
 <p id="notice"><%= notice %></p>
 <p>
-  <b>Name:</b>
+  <span class="label">Name:</span>
   <%= @photo.name %>
 </p>
 <%-if (@photo.description!=nil && @photo.description!='')-%>
 <p>
-  <b>Description:</b>
+  <span class="label">Description:</span>
   <%= @photo.description %>
 </p>
 <%-end-%>
 <p>
-  <b>Xpro:</b>
+  <span class="label">Xpro:</span>
   <%-if @photo.xpro == true%>
   	&#10003;
   <%-else-%>
@@ -35,19 +35,19 @@
 </p>
 <%- if !@photo.camera!=nil%>
 <p>
-  <b>Camera:</b>
+  <span class="label">Camera:</span>
 <%= link_to @photo.camera.fullName,:controller =>'cameras', :action => 'show', :id => @photo.camera if( @photo.camera != nil)%>
 </p>
 <%-end%>
 <p>
 	<%- if !@photo.film!=nil%>
-  <b>Film:</b>
+  <span class="label">Film:</span>
   <%= link_to @photo.film.fullName,:controller =>'films', :action => 'show', :id => @photo.film if( @photo.film != nil)%>
 </p>
 <%-end%>
 <%- if !@photo.tags.empty?%>
 <p>
-	<b>Tags:</b>
+	<span class="label">Tags:</span>
 	<% @photo.tags.each do |tag| %>
 		<%= link_to tag.name ,:controller =>'tags', :action => 'show', :id => tag %> 
 	<% end%>

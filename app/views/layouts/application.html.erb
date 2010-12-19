@@ -4,6 +4,7 @@
 <title><%=h yield_for(:title, "Do You Eat Cupcakes")%></title>
 <link rel="icon" type="image/png" href="/images/favicon.png" />
 <link rel="alternate" type="application/atom+xml" title="ATOM" href="/feed.atom" />
+<link href='http://fonts.googleapis.com/css?family=Lato:100,light,regular,bold,900' rel='stylesheet' type='text/css'>
 <%= stylesheet_link_tag :all %>
 <%= javascript_include_tag :defaults %>
 <%= javascript_include_tag 'swfobject','uploadify', 'jquery.nivo.slider.pack' %>
@@ -26,8 +27,7 @@ $('#menu li').hover(function() {
 	
 <ul id="menu">
 <li <%- if(request.path.starts_with?(photos_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Pictures', photos_path%></li>
-		<li <%- if(
-				request.path.starts_with?(albums_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Albums', albums_path%></li>
+<li <%- if(request.path.starts_with?(albums_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Albums', albums_path%></li>
 <li <%- if(request.path.starts_with?('/inspiration')) -%>class="currentPage"<%-end-%>><%= link_to 'Inspiration', 'http://dont.eatcupcak.es', :target => "blank"%></li>
 <li <%- if(request.path.starts_with?(recipes_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Recipes', recipes_path%></li>
 
