@@ -602,6 +602,12 @@ label{
 	font-family:iconic;
 	font-size:20px;
 }
+
+#footer .icon{
+	font-family:iconic;
+	font-size:40px;
+	color:#EDECD8;
+}
 /**form:before {
 	content:url(../images/favicon.png);
 	width:200px;
