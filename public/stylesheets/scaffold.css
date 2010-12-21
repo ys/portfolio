@@ -594,6 +594,7 @@ label{
 	position:absolute;
 	bottom:-40px;
 	right:0;
+	font-weight:400;
 }
 .about{
 	color:#888;
@@ -601,6 +602,7 @@ label{
 .icon{
 	font-family:iconic;
 	font-size:20px;
+	font-weight:100;
 }
 
 #footer .icon{

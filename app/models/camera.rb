@@ -4,6 +4,8 @@ class Camera < ActiveRecord::Base
   @@per_page = 36
   
   has_many :photos
+  
+  validates_uniqueness_of :nickname
   def fullName()
     brand+" "+model
   end
