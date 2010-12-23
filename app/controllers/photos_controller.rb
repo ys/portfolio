@@ -119,15 +119,12 @@ class PhotosController < ApplicationController
       end
       @photo.tags << @tag
     }
-    if (@photo.isPublished?) 
-      Twitter.configure do |config|
-        config.consumer_key = 'hw5K9KNivhxxcwEqvHHA'
-        config.consumer_secret = 'tDd61vPeScRFtHkDccNK4QxCtHPi6WQzIb9zO4Iw2I'
-        Twitter.update("I just posted a new picture on http://doyou.eatcupcak.es!")
-      end
-    end
+    @beforeUpdatePublished= @photo.isPublished?
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
+        if (@photo.isPublished? && !@beforeUpdatePublished) 
+          postToTwitter("I just posted a new picture on #doyoueatcupcakes ! : "+ request.url)
+        end
         format.html { redirect_to(@photo, :notice => 'Photo was successfully updated.') }
         format.xml  { head :ok }
         format.json  { head :ok }
