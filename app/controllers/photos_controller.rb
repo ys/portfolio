@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_filter :is_user!, :except => [:feed,:show, :index]
+  before_filter :getLists, :only => [:new, :create, :edit, :update]
   require "kconv"
   
   # GET /photos
@@ -24,6 +25,11 @@ class PhotosController < ApplicationController
     end
   end
   
+  #GET /
+  def last
+    @lastPhotos = Photo.find(:all, :order=>'id DESC', :limit => 10)
+  end
+  
   
   def feed
     @photos = Photo.all
@@ -44,13 +50,17 @@ class PhotosController < ApplicationController
       format.json  { render :json => @photo }
     end
   end
-
+  
+  
+  def getLists
+    @cameras = Camera.all
+    @films = Film.all
+  end
   # GET /photos/new
   # GET /photos/new.xml
   def new
     @photo = Photo.new
-    @cameras = Camera.all
-    @films = Film.all
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @photo }
@@ -61,8 +71,7 @@ class PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
     @photo = Photo.find(params[:id])
-    @cameras = Camera.all
-    @films = Film.all
+    
   end
 
   # POST /photos
@@ -123,7 +132,7 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
         if (@photo.isPublished? && !@beforeUpdatePublished) 
-          postToTwitter("I just posted a new picture on #doyoueatcupcakes ! : "+ request.url)
+          postToTwitter("New picture on #doyoueatcupcakes ! : "+ request.url)
         end
         format.html { redirect_to(@photo, :notice => 'Photo was successfully updated.') }
         format.xml  { head :ok }

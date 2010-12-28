@@ -3,8 +3,8 @@
 <% @photos.each do |photo| %>
 	<div class=" grid_4 <%- if i==0 -%>alpha<%- end -%> <%- if i==5 -%>omega<%- end -%> category">
 		<%#<div class="triangle left"></div>%>
-		<span class="leftAlign"><%= link_to photo.name,:controller =>'photos', :action => 'show', :id => photo %></span>
-		<%= link_to image_tag(photo.image.url(:square), :border =>0),:controller =>'photos', :action => 'show', :id => photo %>
+		<span class="leftAlign"><%= link_to photo.name, photo %></span>
+		<%= link_to image_tag(photo.image.url(:square), :border =>0), photo %>
 		<%- if user_signed_in? -%>
 		<div class="triangle right"></div>
 		<span class="rightAlign"><%= link_to 'p', edit_photo_path(photo), :class=>"icon" %> <%= link_to 't', photo, :confirm => 'Delete this picture?', :method => :delete, :remote=>true, :class=> "icon" %> <%-if !photo.isPublished?-%> <a class="icon">L</a><%-end-%></span>

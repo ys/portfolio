@@ -25,7 +25,7 @@ Eatcpcks::Application.routes.draw do
     resources :photos
   end
   match'feed'=>'photos#feed', :format => 'atom'
-  root :to => "static#show", :defaults => { :static => 'faq' }
+  root :to => "Photos#last"
    #root :to => "photos#index"
    match ':static' => 'static#show'
 

@@ -16,6 +16,7 @@ class Photo < ActiveRecord::Base
     :google_storage_credentials => "#{RAILS_ROOT}/config/storage.yml"
     
     # Paperclip Validations
+    validates :name, :presence => true
     validates_attachment_presence :image
     #validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg']
     validates_attachment_size :image, :less_than => 10.megabytes,

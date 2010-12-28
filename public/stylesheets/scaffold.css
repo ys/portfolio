@@ -59,18 +59,18 @@ div.field, div.actions {
 }
 
 #notice {
-  color: green;
+  color: rgba(2,174,192,0.6);
+font-weight:400;
 }
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color: rgba(2,174,192,0.6);
   display: table;
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
+  border: 2px solid rgba(2,174,192,0.6);
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
@@ -84,7 +84,7 @@ div.field, div.actions {
   font-size: 12px;
   margin: -7px;
   margin-bottom: 0px;
-  background-color: #c00;
+  background-color: rgba(2,174,192,0.6);
   color: #fff;
 }
 
