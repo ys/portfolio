@@ -20,3 +20,10 @@ function  checkImage(o) {
         
     
 }
+
+$(document).ready(function() {
+  	$('.delete-icon').bind('ajax:success', function() {
+		$(this).parents('.category').fadeOut();
+	});
+});
+

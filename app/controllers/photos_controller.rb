@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :is_user!, :except => [:feed,:show, :index]
+  before_filter :is_user!, :except => [:feed,:show, :index, :last]
   before_filter :getLists, :only => [:new, :create, :edit, :update]
   require "kconv"
   
@@ -155,6 +155,7 @@ class PhotosController < ApplicationController
       format.html { redirect_to(photos_url) }
       format.xml  { head :ok }
       format.json  { head :ok }
+      format.js { render :nothing => true }
     end
   end
 end
