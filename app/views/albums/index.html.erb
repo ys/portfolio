@@ -2,7 +2,7 @@
 
 <% i=0%>
 <% @albums.each do |album| %>
-	<div class="category grid_4 <%- if i==0 -%>alpha<%-end-%> <%- if i==5 -%>omega<%-end-%>">
+	<div class="category grid_8 <%- if i==0 -%>alpha<%-end-%> <%- if i==2 -%>omega<%-end-%>">
 		<span class="leftAlign"><%= album.name %></span>
 		<%= link_to image_tag(randomMediumPicture(album), :border =>0),:controller =>'albums', :action => 'show', :id => album %>
 		<%- if user_signed_in? -%>
@@ -11,7 +11,7 @@
 		<%-end-%>
 	</div>
 	<%-i = i+1 -%>
-	<%- if i==6 -%>
+	<%- if i==3 -%>
 	<%-i=0 end-%>
 	<%-end-%>
 
