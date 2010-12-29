@@ -29,7 +29,7 @@ $('#menu li').hover(function() {
 <li <%- if(request.path.starts_with?(photos_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Pictures', photos_path%></li>
 <li <%- if(request.path.starts_with?(albums_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Albums', albums_path%></li>
 <li <%- if(request.path.starts_with?('/inspiration')) -%>class="currentPage"<%-end-%>><%= link_to 'Inspiration', 'http://dont.eatcupcak.es', :target => "blank"%></li>
-<li <%- if(request.path.starts_with?(recipes_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Recipes', recipes_path%></li>
+<%-if(user_signed_in?)%><li <%- if(request.path.starts_with?(recipes_path)) -%>class="currentPage"<%-end-%>><%= link_to 'Recipes', recipes_path%></li><%-end%>
 
 <li <%- if(request.path.starts_with?('/about')) -%>class="currentPage"<%-end-%>><%= link_to 'Myself', '/about'%></li>
 

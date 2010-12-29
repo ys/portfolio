@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212100711) do
+ActiveRecord::Schema.define(:version => 20101229134446) do
 
   create_table "albums", :force => true do |t|
     t.string    "name"
@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(:version => 20101212100711) do
   end
 
   create_table "comments", :force => true do |t|
-    t.string   "title",            :limit => 50, :default => ""
-    t.text     "comment"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "title",            :limit => 50, :default => ""
+    t.text      "comment"
+    t.integer   "commentable_id"
+    t.string    "commentable_type"
+    t.integer   "user_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20101212100711) do
     t.string    "last_sign_in_ip"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.boolean   "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
